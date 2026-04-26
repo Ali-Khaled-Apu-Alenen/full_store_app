@@ -1,0 +1,48 @@
+{
+  "hello": "مرحبا",
+  "Choose Language": "اختر اللغة",
+  "English": "الانجليزية",
+  "Arabic": "العربية",
+  "Continue":"متابعة",
+  "validate":{
+  "InputLength":"القيمة يجب أن تكون بين {min} و {max} حرف",
+  "Invalid email":"البريد الالكتروني غير صحيح",
+  "Invalid password":"كلمة المرور غير صحيحة",
+  "Invalid phone":"رقم الهاتف غير صحيح"
+  },
+  "login": {
+  "Sign in": "تسجيل الدخول",
+  "Email": "البريد الالكتروني",
+  "password": "كلمة المرور",
+  "Login": "تسجيل الدخول",
+  "Remember me":" تذكرني ",
+  "Forgot password?":"نسيت كلمه المرور؟"
+  },
+  "signUp":{
+    "Sign Up":"إنشاء حساب",
+    "Phone":"رقم الهاتف",
+    "Email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور"
+  },
+  "forgetPassword":{
+    "Forget Password":"نسيت كلمة المرور",
+    "Enter Your Email":"أدخل بريدك الإلكتروني",
+    "Reset Password":"لإعادة تعيين كلمة المرور،\n يرجى إدخال بريدك الإلكتروني.",
+    "Email not found":"البريد الإلكتروني غير موجود"
+  },
+  "checkCode":{
+    "Check Your Email":"تحقق من بريدك الإلكتروني",
+    "Verify incorrect":"رمز التحقق غير صحيح",
+    "wrong code":"رمز خاطئ",
+    "Code Sent":"لقد أرسلنا إليك بريدًا إلكترونيًا يحتوي على رمز لإعادة تعيين كلمة المرور"
+  },
+  "resetPassword":{
+    "Reset Password":"إعادة تعيين كلمة المرور",
+    "Enter Your Password":"أدخل كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور الجديدة"
+  },
+  "home":{
+    "Hello":"مرحبا"
+  }
+}

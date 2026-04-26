@@ -1,0 +1,48 @@
+{
+  "hello": "hello",
+  "Choose Language": "Choose Language",
+  "English": "English",
+  "Arabic": "Arabic",
+  "Continue":"Continue",
+  "validate":{
+    "Invalid phone":"Invalid phone",
+    "Invalid email":"Invalid email",
+    "Invalid password":"Invalid password",
+    "InputLength":"Input must be between {min} and {max} characters"
+  },
+  "login":{
+   "Sign in": "Sign in",
+   "Email": "Email",
+   "password": "password",
+   "Login": "Login",
+   "Remember me":"Remember me",
+   "Forgot password?":"Forget password?"
+  },
+  "signUp":{
+    "Sign Up":"Sign Up",
+    "Phone":"Phone",
+    "Email": "Email",
+    "password": "password",
+    "confirmPassword": "confirmPassword"
+  },
+  "forgetPassword":{
+    "Forget Password":"Forget Password",
+    "Enter Your Email":"Enter Your Email",
+    "Reset Password":"To reset your password,\n please enter your email address.",
+    "Email not found":"Email not found"
+  },
+  "checkCode":{
+    "Check Your Email":"Check Your Email",
+    "Verify incorrect":"Verify code is incorrect",
+    "wrong code":"Wrong code",
+    "Code Sent":"We've sent you an email with a code to reset your password"
+  },
+  "resetPassword":{
+    "Reset Password":"Reset Password",
+    "Enter Your Password":"Enter Your New Password",
+    "confirmPassword": "confirm New Password"
+  },
+  "home":{
+    "hello":"hello"
+  }
+}
