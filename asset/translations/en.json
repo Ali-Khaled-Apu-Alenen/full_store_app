@@ -43,6 +43,22 @@
     "confirmPassword": "confirm New Password"
   },
   "home":{
-    "hello":"hello"
+    "hello":"hello",
+    "featured":"Featured",
+    "see all":"See all",
+    "most popular":"Most Popular",
+    "Search":"Search",
+    "cardview":{
+      "Get Winter Discount":"Get Winter Discount",
+      "20% OFF":"20% OFF",
+      "for children":"for children",
+      "Discount for electronics":"Discount for electronics",
+      "30% OFF":"30% OFF",
+      "for electronics":"for electronics",
+      "Fast Delevery Food":"Fast Delevery Food",
+      "Free shipping":"Free shipping",
+      "Delivery":"Delivery"
+    }
+
   }
 }

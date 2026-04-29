@@ -30,50 +30,52 @@ class _HomeState extends State<Home> {
   // }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              AppBarNotificationIcon(),
-              SizedBox(height: 18),
-              SearchBar(),
-              SizedBox(height: 18),
-              CardViewHome(),
-              SizedBox(height: 8),
-              HomeCardDots(),
-              SizedBox(height: 18),
-              Row(
-                children: [
-                  SizedBox(width: 18),
-                  Text("Featured".tr(), style: TextStyles.font16SimiBold),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text("See all", style: TextStyle(fontSize: 12)).tr(),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              FeaturedListView(),
-              SizedBox(height: 16),
-              Row(
-                children: [
-                  SizedBox(width: 18),
-                  Text("MostPopular".tr(), style: TextStyles.font16SimiBold),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text("See all", style: TextStyle(fontSize: 12)).tr(),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              MostPopularListView(),
-            ],
+    return 
+   SafeArea(
+        child: Material(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                AppBarNotificationIcon(),
+                SizedBox(height: 18),
+                SearchBar(),
+                SizedBox(height: 18),
+                CardViewHome(),
+                SizedBox(height: 8),
+                HomeCardDots(),
+                SizedBox(height: 18),
+                Row(
+                  children: [
+                    SizedBox(width: 18),
+                    Text("home.featured".tr(), style: TextStyles.font16SimiBold),
+                    Spacer(),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text("home.see all".tr(), style: TextStyle(fontSize: 12)),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
+                FeaturedListView(),
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    SizedBox(width: 18),
+                    Text("home.most popular".tr(), style: TextStyles.font16SimiBold),
+                    Spacer(),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text("home.see all".tr(), style: TextStyle(fontSize: 12)),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
+                MostPopularListView(),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    
   }
 }

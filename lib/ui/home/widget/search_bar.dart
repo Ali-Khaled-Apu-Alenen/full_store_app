@@ -1,5 +1,6 @@
 import 'package:advanced_store_project/core/constatnt/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});
@@ -14,7 +15,7 @@ class SearchBar extends StatelessWidget {
           fillColor: HomeColors.lightGrey,
           prefixIcon: Icon(Icons.search),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-          hintText: "Search",
+          hintText: "home.Search".tr,
         ),
       ),
     );

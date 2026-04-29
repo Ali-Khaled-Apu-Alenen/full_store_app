@@ -7,5 +7,6 @@ class RoutesName{
   static const String forgotPassword = "/forgot_password";
   static const String checkCode = "/check_code";
   static const String resetPassword = "/reset_password";
+  static const String bottomBar = "/bottom_bar";
 
 }

@@ -1,5 +1,6 @@
 import 'package:advanced_store_project/core/constatnt/colors.dart';
 import 'package:advanced_store_project/core/styles/text_styles.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CardDiscount extends StatelessWidget {
@@ -33,11 +34,11 @@ class CardDiscount extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(text1, style: TextStyles.font14SimiBoldWhite),
+              Text(text1, style: TextStyles.font14SimiBoldWhite).tr(),
               SizedBox(height: 2),
-              Text(text2, style: TextStyles.font16BoldWhite),
+              Text(text2, style: TextStyles.font16BoldWhite).tr(),
               SizedBox(height: 2),
-              Text(text3, style: TextStyles.font14SimiBoldWhite),
+              Text(text3, style: TextStyles.font14SimiBoldWhite).tr(),
             ],
           ),
           Spacer(),

@@ -25,9 +25,9 @@ class _CardViewHomeState extends State<CardViewHome> {
           Container(
             margin: EdgeInsets.only(right: 8),
             child: CardDiscount(
-              text1: "Get Winter Discount",
-              text2: "20% OFF",
-              text3: "for children",
+              text1: "home.cardview.Get Winter Discount",
+              text2: "home.cardview.20% OFF",
+              text3: "home.cardview.for children",
               isImageAsset: true,
               link: "asset/images/children.png",
             ),
@@ -35,18 +35,18 @@ class _CardViewHomeState extends State<CardViewHome> {
           Container(
             margin: EdgeInsets.only(right: 8),
             child: CardDiscount(
-              text1: "Discount for electronics",
-              text2: "30% OFF",
-              text3: "for electronics",
+              text1: "home.cardview.Discount for electronics",
+              text2: "home.cardview.30% OFF",
+              text3: "home.cardview.for electronics",
               isImageAsset: true,
               link: "asset/images/laptop.png",
             ),
           ),
           Container(
             child: CardDiscount(
-              text1: "Fast Delevery Food",
-              text2: "Free",
-              text3: "Delivery",
+              text1: "home.cardview.Fast Delevery Food",
+              text2: "home.cardview.Free shipping",
+              text3: "home.cardview.Delivery",
               isImageAsset: true,
               link: "asset/images/snacks.png",
             ),

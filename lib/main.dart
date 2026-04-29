@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       onGenerateRoute: AppRoutes.onboardingRoute,
-      initialRoute: RoutesName.home,
+      initialRoute: RoutesName.bottomBar,
     );
   }
 }

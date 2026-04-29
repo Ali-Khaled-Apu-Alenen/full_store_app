@@ -3,6 +3,8 @@ import 'package:advanced_store_project/core/networking/api_services.dart';
 import 'package:advanced_store_project/ui/auth/login/logic/cubit/login_cubit.dart';
 import 'package:advanced_store_project/ui/auth/login/login.dart';
 import 'package:advanced_store_project/ui/auth/login/password_auth/password_auth_wrapper.dart';
+import 'package:advanced_store_project/ui/bottom_bar/bottom_bar.dart';
+import 'package:advanced_store_project/ui/bottom_bar/logic/cubit/bottom_bar_cubit.dart';
 import 'package:advanced_store_project/ui/home/home.dart';
 import 'package:advanced_store_project/ui/home/widget/home_pages_wrapper.dart';
 import 'package:advanced_store_project/ui/onboardign/logic/onboarding_cubit_cubit.dart';
@@ -42,7 +44,8 @@ class AppRoutes {
             child: TranslationPage(),
           ),
         );
-
+      case RoutesName.bottomBar:
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => BottomBarCubit(), child: BottomBar()));
       case RoutesName.forgotPassword:
         return MaterialPageRoute(builder: (context) => PasswordAuthWrapper(initialRoute: RoutesName.forgotPassword));
       case RoutesName.checkCode:

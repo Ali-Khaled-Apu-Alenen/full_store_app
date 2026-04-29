@@ -26,9 +26,9 @@ class _FeaturedListViewState extends State<FeaturedListView> {
   Widget _buildCategoryImage(String imageFileName) {
     final isSvg = imageFileName.toLowerCase().endsWith('.svg');
     if (isSvg) {
-      return SvgPicture.asset("asset/svgs/$imageFileName", fit: BoxFit.contain);
+      return Center(child: SvgPicture.asset("asset/svgs/$imageFileName", fit: BoxFit.contain));
     }
-    return Image.asset("asset/images/$imageFileName", fit: BoxFit.contain);
+    return Center(child: Image.asset("asset/images/$imageFileName", fit: BoxFit.contain));
   }
 
   @override
@@ -61,46 +61,52 @@ class _FeaturedListViewState extends State<FeaturedListView> {
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(right: 16),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 99,
-                          width: 126,
-                          child: Stack(
-                            children: [
-                              _buildCategoryImage(categories[index].image),
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: Container(
-                                  width: 24,
-                                  height: 24,
-                                  margin: EdgeInsets.only(top: 8, right: 8),
-                                  child: Image.asset(
-                                    "asset/images/favorit_filled.png",
-                                  ),
-                                ),
-                              ),
-                            ],
+                  return InkWell(
+                    onTap: () {
+                      print(categories[index].id);
+                      // TODO: Navigate to category details
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(right: 16),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 99,
+                            width: 126,
+                            child: Stack(
+                              children: [
+                                _buildCategoryImage(categories[index].image),
+                                // Align(
+                                //   alignment: Alignment.topRight,
+                                //   child: Container(
+                                //     width: 24,
+                                //     height: 24,
+                                //     margin: EdgeInsets.only(top: 8, right: 8),
+                                //     child: Image.asset(
+                                //       "asset/images/favorit_filled.png",
+                                //     ),
+                                //   ),
+                                // ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 2),
-                        Text(
-                          categories[index].name,
-                          style: TextStyles.font14SimiBoldBlack,
-                        ),
-                        Text(
-                          "40\$",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: HomeColors.primaryColor,
-                            fontWeight: FontWeights.semiBold,
+                          SizedBox(height: 2),
+                          Text(
+                            categories[index].name,
+                            style: TextStyles.font14SimiBoldBlack,
                           ),
-                        ),
-                      ],
+                          Text(
+                            "40\$",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: HomeColors.primaryColor,
+                              fontWeight: FontWeights.semiBold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
