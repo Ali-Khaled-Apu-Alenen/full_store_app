@@ -9,18 +9,17 @@ class Onboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return  Scaffold(
         body: Column(
+
           children: [
           PageViewBuilderOnboarding(),
           DotsGeneration(),
           SizedBox(height: 20,),
           ButtonOnboarding(),
-        SizedBox(height: 70,),
+        SizedBox(height: 50,),
           ],
         ),
-      ),
-    );
+      );
   }
 }

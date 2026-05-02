@@ -21,6 +21,7 @@ void main() async {
   final savedLocale = await SharedPreferencesHelper.getString(
     Languages.languageKey,
   );
+  
   final initLocal = savedLocale != null
       ? Locale(savedLocale)
       : Locale(deviceLocale);
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       onGenerateRoute: AppRoutes.onboardingRoute,
-      initialRoute: RoutesName.bottomBar,
+      initialRoute: initPage,
     );
   }
 }

@@ -59,5 +59,19 @@
       "Free shipping": "شحن مجاني",
       "Delivery": "توصيل"
     }
+  },
+  "items":{
+    "Products": "المنتجات",
+    "Error": "خطأ",
+    "No items found in this category": "لا توجد منتجات في هذه الفئة",
+    "NO Internet Connection": "لا يوجد اتصال بالإنترنت",
+    "Description": "الوصف",
+    "Buy Now": "اشترِ الآن",
+    "Start searching...": "ابدأ البحث...",
+    "No items found": "لا توجد منتجات",
+    "Results for:": "نتائج البحث عن: {}",
+    "items": "منتجات"
   }
+  
+
 }

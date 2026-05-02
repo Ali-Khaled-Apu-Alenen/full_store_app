@@ -1,7 +1,7 @@
 import 'package:advanced_store_project/core/networking/api_error_model.dart';
 import 'package:advanced_store_project/core/networking/api_result.dart';
 import 'package:advanced_store_project/core/networking/api_services.dart';
-import 'package:advanced_store_project/ui/home/logic/model/items_response_data.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/items_response_data.dart';
 import 'dart:convert';
 
 class ItemsRepo {

@@ -1,10 +1,10 @@
 import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/ui/home/logic/bloc/home_bloc.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeCardDots extends StatefulWidget {
-  HomeCardDots({Key? key}) : super(key: key);
+  const HomeCardDots({super.key});
 
   @override
   _HomeCardDotsState createState() => _HomeCardDotsState();

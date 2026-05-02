@@ -1,17 +1,17 @@
 import 'package:advanced_store_project/core/constatnt/colors.dart';
 import 'package:advanced_store_project/core/styles/font_weights.dart';
 import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/ui/home/widget/app_bar_notification_icon.dart';
-import 'package:advanced_store_project/ui/home/widget/card_discount.dart';
-import 'package:advanced_store_project/ui/home/widget/card_view.dart';
-import 'package:advanced_store_project/ui/home/widget/featured_list_view.dart';
-import 'package:advanced_store_project/ui/home/widget/home_card_dots.dart';
-import 'package:advanced_store_project/ui/home/widget/most_popular_list_view.dart';
-import 'package:advanced_store_project/ui/home/widget/search_bar.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/app_bar_notification_icon.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/card_discount.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/card_view.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/featured_list_view.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/home_card_dots.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/most_popular_list_view.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/widget/search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart' hide SearchBar;
+import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
               children: [
                 AppBarNotificationIcon(),
                 SizedBox(height: 18),
-                SearchBar(),
+                SearchBarCostum(searchController: TextEditingController()),
                 SizedBox(height: 18),
                 CardViewHome(),
                 SizedBox(height: 8),

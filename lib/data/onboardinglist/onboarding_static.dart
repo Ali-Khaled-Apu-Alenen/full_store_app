@@ -4,23 +4,26 @@ import 'package:advanced_store_project/data/onboardinglist/onboarding_model.dart
 List<OnboardingModel> onboardingList = [
   
   OnboardingModel(
-    title: "Easy game to play",
-    description: "If the Box is green thats mean you in the right way :),",
+    title: "Purchase Online !!",
+    description: "Online shopping is easy and secure",
     image: ImageAsset.imageOne,
+    shape: ImageAsset.shapeOne,
   ),
   OnboardingModel(
-    title: "Single person development",
-    description: "If there any problem you can contact me on my email <aaali556780@gmail.com>",
+    title: "Track order !!",
+    description: "Track your order in real time",
     image: ImageAsset.imageTwo,
+    shape: ImageAsset.shapeTwo,
   ),
   OnboardingModel(
-    title: "improve your words knowledge",
-    description: "every random word you will get a new word to learn",
+    title: "Get your order !!",
+    description: "Get your order delivered to your door",
     image: ImageAsset.imageTree,
+    shape: ImageAsset.shapeThree,
   ),
-  OnboardingModel(
-    title: "online save your progress",
-    description: "you can save your progress online and continue later \n and your height score will be saved too",
-    image: ImageAsset.imageFour,
-  ),
+  // OnboardingModel(
+  //   title: "online save your progress",
+  //   description: "you can save your progress online and continue later \n and your height score will be saved too",
+  //   image: ImageAsset.imageFour,
+  // ),
 ];

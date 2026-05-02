@@ -52,7 +52,7 @@ class Middleware {
 
       if (isLogged && isRememberMe) {
 
-        return RoutesName.home;
+        return RoutesName.bottomBar;
 
       } else {
 

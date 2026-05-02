@@ -29,7 +29,7 @@ class ButtonOnboarding extends StatelessWidget {
               cubit.nextIndex(context);
               cubit.changePage();
             },
-            child: Text(cubit.buttonText),
+            child: Text(cubit.buttonText,style: TextStyle(color: Colors.white),),
           );
         },
       ),

@@ -203,6 +203,13 @@ class _LoginState extends State<Login> {
                       child: Text("login.Login").tr(),
                     ),
                   ),
+                  Text("didnt have account?"),
+                  InkWell(
+                    child: Text("login.SignUp").tr(),
+                    onTap: () {
+                      Navigator.pushNamed(context, RoutesName.sign);
+                    },
+                  ),
                 ],
               ),
             ),

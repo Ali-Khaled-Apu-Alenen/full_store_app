@@ -1,8 +1,11 @@
 import 'package:advanced_store_project/core/constatnt/colors.dart';
+import 'package:advanced_store_project/core/constatnt/routes_name.dart';
+import 'package:advanced_store_project/core/networking/api_constants.dart';
 import 'package:advanced_store_project/core/styles/font_weights.dart';
 import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/ui/home/logic/bloc/home_bloc.dart';
-import 'package:advanced_store_project/ui/home/logic/model/categorie_response_data.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
+import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/categorie_response_data.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,10 +28,12 @@ class _FeaturedListViewState extends State<FeaturedListView> {
 
   Widget _buildCategoryImage(String imageFileName) {
     final isSvg = imageFileName.toLowerCase().endsWith('.svg');
-    if (isSvg) {
-      return Center(child: SvgPicture.asset("asset/svgs/$imageFileName", fit: BoxFit.contain));
+    if (imageFileName.isEmpty) {
+      return Center(child: Icon(Icons.error));
+    } else if (isSvg) {
+      return Center(child: SvgPicture.network("${ApiConstants.categoriesImageUrl}$imageFileName", fit: BoxFit.contain));
     }
-    return Center(child: Image.asset("asset/images/$imageFileName", fit: BoxFit.contain));
+    return Center(child: Image.network("${ApiConstants.categoriesImageUrl}$imageFileName", fit: BoxFit.contain));
   }
 
   @override
@@ -63,6 +68,7 @@ class _FeaturedListViewState extends State<FeaturedListView> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
+                      Navigator.pushNamed(context, RoutesName.items, arguments: categories[index].id);
                       print(categories[index].id);
                       // TODO: Navigate to category details
                     },
@@ -96,15 +102,15 @@ class _FeaturedListViewState extends State<FeaturedListView> {
                             categories[index].name,
                             style: TextStyles.font14SimiBoldBlack,
                           ),
-                          Text(
-                            "40\$",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: HomeColors.primaryColor,
-                              fontWeight: FontWeights.semiBold,
-                            ),
-                          ),
+                          // Text(
+                          //   "40\$",
+                          //   textAlign: TextAlign.start,
+                          //   style: TextStyle(
+                          //     fontSize: 12,
+                          //     color: HomeColors.primaryColor,
+                          //     fontWeight: FontWeights.semiBold,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -114,7 +120,7 @@ class _FeaturedListViewState extends State<FeaturedListView> {
             );
           },
           getCategoriesError: () {
-            return Center(child: Text("NO Internet Connection"));
+            return Center(child: Text("items.NO Internet Connection".tr()));
           },
           orElse: () => SizedBox.shrink(),
         );
