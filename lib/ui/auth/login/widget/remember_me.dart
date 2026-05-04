@@ -1,12 +1,13 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/functions/custom_check_box.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/cubit/login_cubit.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/functions/custom_check_box.dart';
+import 'package:ali_store/ui/auth/login/logic/cubit/login_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RememberMe extends StatelessWidget {
-  const RememberMe({Key? key}) : super(key: key);
+  final bool isChecked;
+  const RememberMe({super.key, required this.isChecked});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +18,9 @@ class RememberMe extends StatelessWidget {
           // Checkbox(
           //   fillColor: WidgetStatePropertyAll(AppColors.primaryLoginColor),
           //   value: true, onChanged: (value) {}),
-          BlocBuilder<LoginCubit, LoginState>(
-            builder: (context, state) {
-              return CustomCheckBox(
-                onTap: () => context.read<LoginCubit>().toggleRememberMe(),
-                isChecked: context.read<LoginCubit>().rememberMe,
-              );
-            },
+          CustomCheckBox(
+            onTap: () => context.read<LoginCubit>().toggleRememberMe(),
+            isChecked: isChecked,
           ),
           Text("login.Remember me").tr(),
           Spacer(),

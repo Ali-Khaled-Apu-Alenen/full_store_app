@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:advanced_store_project/core/networking/api_error_model.dart';
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/core/networking/api_services.dart';
+import 'package:ali_store/core/networking/api_error_model.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/core/networking/api_services.dart';
 import 'package:dio/dio.dart';
 
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/categorie_response_data.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/items_response_data.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/categorie_response_data.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
 
 class CategoriesRepo {
   final ApiServices _apiServices;

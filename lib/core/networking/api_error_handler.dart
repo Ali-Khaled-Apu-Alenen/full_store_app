@@ -1,4 +1,4 @@
-import 'package:advanced_store_project/core/networking/api_error_model.dart';
+import 'package:ali_store/core/networking/api_error_model.dart';
 import 'package:dio/dio.dart';
 
 

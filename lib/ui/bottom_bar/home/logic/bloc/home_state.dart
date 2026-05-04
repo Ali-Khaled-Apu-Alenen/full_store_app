@@ -11,4 +11,5 @@ sealed class HomeState with _$HomeState {
   const factory HomeState.getItemsLoading() = _GetItemsLoading;
   const factory HomeState.getItemsSuccess(ItemsResponseData data) = _GetItemsSuccess;
   const factory HomeState.getItemsError() = _GetItemsError;
+  const factory HomeState.changeFavoriteItem(int itemId, bool isFavorite) = _ChangeFavoriteItemState;
 }

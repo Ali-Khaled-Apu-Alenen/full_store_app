@@ -1,5 +1,5 @@
-import 'package:advanced_store_project/core/constatnt/image_Assets.dart';
-import 'package:advanced_store_project/data/onboardinglist/onboarding_model.dart';
+import 'package:ali_store/core/constatnt/image_Assets.dart';
+import 'package:ali_store/data/onboardinglist/onboarding_model.dart';
 
 List<OnboardingModel> onboardingList = [
   

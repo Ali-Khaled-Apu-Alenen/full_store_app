@@ -1,5 +1,6 @@
 {
   "hello": "hello",
+  "Sign Up": "Sign Up",
   "Choose Language": "Choose Language",
   "English": "English",
   "Arabic": "Arabic",
@@ -68,6 +69,8 @@
     "Description": "Description",
     "Start searching...": "Start searching...",
     "No items found": "No items found",
-    "Results for:": "Results for: {}"
+    "Results for:": "Results for: {}",
+    "Buy Now": "Buy Now",
+    "items": "items"
   }
 }

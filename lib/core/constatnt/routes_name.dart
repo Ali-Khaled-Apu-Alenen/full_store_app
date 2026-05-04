@@ -11,4 +11,5 @@ class RoutesName{
   static const String items = "/items";
   static const String search = "/search";
   static const String productDetails = "/product_details";
+  static const String verifyCodeTestDetails = "/verify_code_test_details";
 }

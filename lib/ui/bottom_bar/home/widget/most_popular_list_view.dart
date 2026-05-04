@@ -1,16 +1,14 @@
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/constatnt/languages.dart';
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/functions/build_category_image.dart';
-import 'package:advanced_store_project/core/styles/font_weights.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/ui/bottom_bar/details/details_page.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/items_response_data.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/constatnt/languages.dart';
+import 'package:ali_store/core/functions/build_category_image.dart';
+import 'package:ali_store/core/styles/font_weights.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
+import 'package:ali_store/ui/bottom_bar/details/details_page.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter/services.dart';
 
 class MostPopularListView extends StatefulWidget {
@@ -39,12 +37,13 @@ class _MostPopularListViewState extends State<MostPopularListView> {
           getItemsLoading: () => true,
           getItemsSuccess: (_) => true,
           getItemsError: () => true,
-          orElse: () => false, // ignore dots changes
+          orElse: () => false, // ignore dots changes and favorite changes
         );
       },
       builder: (context, state) {
         return state.maybeWhen(
           initial: () => SizedBox.shrink(),
+
           getItemsLoading: () {
             return Center(
               child: CircularProgressIndicator(color: HomeColors.primaryColor),
@@ -88,8 +87,34 @@ class _MostPopularListViewState extends State<MostPopularListView> {
                                     width: 24,
                                     height: 24,
                                     margin: EdgeInsets.only(top: 8, right: 8),
-                                    child: Image.asset(
-                                      "asset/images/favorit_filled.png",
+                                    child: BlocBuilder<HomeBloc, HomeState>(
+                                      builder: (context, state) {
+                                        return InkWell(
+                                          onTap: () {
+                                            final homeBloc = context
+                                                .read<HomeBloc>();
+                                            final isCurrentlyFavorited =
+                                                homeBloc.isItemFavorited(
+                                                  categories[index].item_id,
+                                                );
+                                            homeBloc.add(
+                                              HomeEvent.changeFavoriteItem(
+                                                categories[index].item_id,
+                                                !isCurrentlyFavorited,
+                                              ),
+                                            );
+                                          },
+                                          child: Image.asset(
+                                            context
+                                                    .read<HomeBloc>()
+                                                    .isItemFavorited(
+                                                      categories[index].item_id,
+                                                    )
+                                                ? "asset/images/favorit_filled.png"
+                                                : "asset/images/favorate.png",
+                                          ),
+                                        );
+                                      },
                                     ),
                                   ),
                                 ),
@@ -98,7 +123,9 @@ class _MostPopularListViewState extends State<MostPopularListView> {
                           ),
                           SizedBox(height: 2),
                           Text(
-                            isArab ? categories[index].item_name_ar : categories[index].item_name,
+                            isArab
+                                ? categories[index].item_name_ar
+                                : categories[index].item_name,
                             style: TextStyles.font14SimiBoldBlack,
                           ),
                           Text(

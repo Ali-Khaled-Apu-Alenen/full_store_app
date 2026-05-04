@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/styles/font_weights.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/styles/font_weights.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextStyles {

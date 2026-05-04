@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/core/networking/api_services.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/model/repo/verify_code_repo.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/core/networking/api_services.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/model/repo/verify_code_repo.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +16,14 @@ class VerifyCodeCubit extends Cubit<VerifyCodeState> {
   VerifyCodeCubit(  VerifyCodeRepo verifyCodeRepo)
     : _verifyCodeRepo = verifyCodeRepo,
       super(VerifyCodeState.initial());
+    
   final VerifyCodeRepo _verifyCodeRepo;
   Future<void> emitVerifyCodeStates(
 {required String email,required String verifyCode,required BuildContext context}
 
-  ) async {
+  ) 
+  
+  async {
     emit(VerifyCodeState.loading());
     try {
       final response = await _verifyCodeRepo.verifyCode(

@@ -1,9 +1,9 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/di/dependency_injec.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/home.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/widget/home_pages_wrapper.dart';
-import 'package:advanced_store_project/ui/bottom_bar/search/logic/cubit/search_cubit.dart';
-import 'package:advanced_store_project/ui/bottom_bar/search/search_page.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/di/dependency_injec.dart';
+import 'package:ali_store/ui/bottom_bar/home/home.dart';
+import 'package:ali_store/ui/bottom_bar/home/widget/home_pages_wrapper.dart';
+import 'package:ali_store/ui/bottom_bar/search/logic/cubit/search_cubit.dart';
+import 'package:ali_store/ui/bottom_bar/search/search_page.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

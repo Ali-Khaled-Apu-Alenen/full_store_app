@@ -1,7 +1,7 @@
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/functions/build_category_image.dart';
-import 'package:advanced_store_project/core/styles/font_weights.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/functions/build_category_image.dart';
+import 'package:ali_store/core/styles/font_weights.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

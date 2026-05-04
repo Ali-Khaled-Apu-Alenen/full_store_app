@@ -1,8 +1,9 @@
-import 'package:advanced_store_project/core/constatnt/shared_pref_keys.dart';
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/core/services/shared_preferences_helper.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/model/login_request_date.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/model/repo/login_repo.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/constatnt/shared_pref_keys.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/core/services/shared_preferences_helper.dart';
+import 'package:ali_store/ui/auth/login/logic/model/login_request_date.dart';
+import 'package:ali_store/ui/auth/login/logic/model/repo/login_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -36,6 +37,7 @@ class LoginCubit extends Cubit<LoginState<dynamic>> {
       success: (data) {
         saveLoginData();
         emit(LoginState.success(data));
+      
       },
       failure: (error) {
         emit(LoginState.failure(error.message));
@@ -47,7 +49,7 @@ class LoginCubit extends Cubit<LoginState<dynamic>> {
   toggleObscurePassword() {
     obscurePassword = !obscurePassword;
     emit(
-      const LoginState.togglePassword(),
+      LoginState.togglePassword(obscurePassword),
     ); // Emit new state to trigger UI rebuild
     // print(obscurePassword);
     // return obscurePassword;
@@ -56,7 +58,7 @@ class LoginCubit extends Cubit<LoginState<dynamic>> {
   toggleRememberMe() {
     rememberMe = !rememberMe;
     // print("sharedpref saved");
-    emit(const LoginState.toggleRememberMe());
+    emit(LoginState.toggleRememberMe(rememberMe));
   }
 
   Future<void> saveLoginData() async {

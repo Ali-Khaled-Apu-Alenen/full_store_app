@@ -1,6 +1,6 @@
-import 'package:advanced_store_project/ui/onboardign/widget/button_onboarding.dart';
-import 'package:advanced_store_project/ui/onboardign/widget/dots_generation.dart';
-import 'package:advanced_store_project/ui/onboardign/widget/page_view_builder_onboarding.dart';
+import 'package:ali_store/ui/onboardign/widget/button_onboarding.dart';
+import 'package:ali_store/ui/onboardign/widget/dots_generation.dart';
+import 'package:ali_store/ui/onboardign/widget/page_view_builder_onboarding.dart';
 import 'package:flutter/material.dart';
 
 

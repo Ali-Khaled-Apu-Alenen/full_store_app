@@ -1,4 +1,5 @@
-  import 'package:advanced_store_project/core/networking/api_constants.dart';
+  import 'package:ali_store/core/networking/api_constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
@@ -12,15 +13,15 @@ import 'package:flutter_svg/svg.dart';
     } else if (isSvg) {
       return Center(child: SvgPicture.network("${ApiConstants.itemsImageUrl}$imageFileName", fit: BoxFit.contain));
     } else if (isJpg) {
-      return Center(child: Image.network(
-        "${ApiConstants.itemsImageUrl}$imageFileName", 
+      return Center(child: CachedNetworkImage(
+        imageUrl: "${ApiConstants.itemsImageUrl}$imageFileName", 
         fit: BoxFit.contain,
       ));
     }
-    return Center(child: Image.network(
-      "${ApiConstants.itemsImageUrl}$imageFileName", 
+    return Center(child: CachedNetworkImage(
+      imageUrl: "${ApiConstants.itemsImageUrl}$imageFileName", 
       fit: BoxFit.contain,
-      errorBuilder: (context, error, stackTrace) {
+      errorWidget: (context, error, stackTrace) {
         return Center(child: Icon(Icons.error));
       },
     ));

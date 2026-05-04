@@ -1,5 +1,5 @@
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/widget/card_discount.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
+import 'package:ali_store/ui/bottom_bar/home/widget/card_discount.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

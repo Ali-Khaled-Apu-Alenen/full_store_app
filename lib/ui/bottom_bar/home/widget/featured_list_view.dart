@@ -1,10 +1,10 @@
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/networking/api_constants.dart';
-import 'package:advanced_store_project/core/styles/font_weights.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/categorie_response_data.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/networking/api_constants.dart';
+import 'package:ali_store/core/styles/font_weights.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/categorie_response_data.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -68,7 +68,7 @@ class _FeaturedListViewState extends State<FeaturedListView> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, RoutesName.items, arguments: categories[index].id);
+                      Navigator.of(context).pushNamed(RoutesName.items, arguments: categories[index].id);
                       print(categories[index].id);
                       // TODO: Navigate to category details
                     },

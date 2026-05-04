@@ -1,5 +1,6 @@
 {
   "hello": "مرحبا",
+  "Sign Up": "إنشاء حساب",
   "Choose Language": "اختر اللغة",
   "English": "الانجليزية",
   "Arabic": "العربية",
@@ -60,7 +61,7 @@
       "Delivery": "توصيل"
     }
   },
-  "items":{
+  "items": {
     "Products": "المنتجات",
     "Error": "خطأ",
     "No items found in this category": "لا توجد منتجات في هذه الفئة",
@@ -72,6 +73,4 @@
     "Results for:": "نتائج البحث عن: {}",
     "items": "منتجات"
   }
-  
-
 }

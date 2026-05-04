@@ -1,12 +1,12 @@
 import 'dart:math';
 
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/functions/validate_input.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/ui/auth/login/password_auth/logic/bloc/password_auth_bloc.dart';
-import 'package:advanced_store_project/ui/auth/login/widget/background.dart';
-import 'package:advanced_store_project/ui/auth/login/widget/textforms.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/functions/validate_input.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
+import 'package:ali_store/ui/auth/login/password_auth/logic/bloc/password_auth_bloc.dart';
+import 'package:ali_store/ui/auth/login/widget/background.dart';
+import 'package:ali_store/ui/auth/login/widget/textforms.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

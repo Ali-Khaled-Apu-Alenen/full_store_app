@@ -1,5 +1,5 @@
-import 'package:advanced_store_project/data/onboardinglist/onboarding_static.dart';
-import 'package:advanced_store_project/ui/onboardign/widget/shop_app_text.dart';
+import 'package:ali_store/data/onboardinglist/onboarding_static.dart';
+import 'package:ali_store/ui/onboardign/widget/shop_app_text.dart';
 import 'package:flutter/material.dart';
 
 class ShapeWidget extends StatelessWidget {
@@ -27,7 +27,8 @@ class ShapeWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: isTheredPage ? 165 : 20,
+            left: isTheredPage ? null : 10,
+            right: isTheredPage ? 20: null,
             top: 120,
             child: ShopAppText(isDark: positionUp, isTheredPage: isTheredPage),
           ),

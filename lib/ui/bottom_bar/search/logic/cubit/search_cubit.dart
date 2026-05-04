@@ -1,6 +1,6 @@
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/items_response_data.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/repo/items_repo.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/repo/items_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

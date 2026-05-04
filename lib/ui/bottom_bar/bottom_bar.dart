@@ -1,6 +1,6 @@
-import 'package:advanced_store_project/ui/bottom_bar/logic/cubit/bottom_bar_cubit.dart';
-import 'package:advanced_store_project/core/di/dependency_injec.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
+import 'package:ali_store/ui/bottom_bar/logic/cubit/bottom_bar_cubit.dart';
+import 'package:ali_store/core/di/dependency_injec.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

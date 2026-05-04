@@ -1,5 +1,5 @@
-name: advanced_store_project
-description: "A new Flutter project."
+name: ali_store
+description: "Ali Store - A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -40,7 +40,6 @@ dependencies:
   get: ^4.7.3
   easy_localization: ^3.0.8
   flutter_svg: ^2.2.4
-  flutter_launcher_icons: ^0.14.4
   pinput: ^6.0.2
   google_fonts: ^8.0.2
   dio: ^5.9.2
@@ -53,10 +52,12 @@ dependencies:
   awesome_dialog: ^3.3.0
   firebase_core: ^4.7.0
   firebase_messaging: ^16.2.0
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -67,9 +68,11 @@ dev_dependencies:
   json_serializable: ^6.13.1
   build_runner: ^2.13.1
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "asset/images/icon/Ali_store.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -83,7 +86,6 @@ flutter:
     - asset/svgs/
     - asset/translations/
     - asset/images/onboarding/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

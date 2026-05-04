@@ -1,27 +1,28 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/di/dependency_injec.dart';
-import 'package:advanced_store_project/core/networking/api_services.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/cubit/login_cubit.dart';
-import 'package:advanced_store_project/ui/auth/login/login.dart';
-import 'package:advanced_store_project/ui/auth/login/password_auth/password_auth_wrapper.dart';
-import 'package:advanced_store_project/ui/bottom_bar/bottom_bar.dart';
-import 'package:advanced_store_project/ui/bottom_bar/details/details_page.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/logic/model/items_response_data.dart';
-import 'package:advanced_store_project/ui/bottom_bar/logic/cubit/bottom_bar_cubit.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/home.dart';
-import 'package:advanced_store_project/ui/bottom_bar/home/widget/home_pages_wrapper.dart';
-import 'package:advanced_store_project/ui/bottom_bar/items_page/items_page.dart';
-import 'package:advanced_store_project/ui/onboardign/logic/onboarding_cubit_cubit.dart';
-import 'package:advanced_store_project/ui/onboardign/onboarding.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/cubit/sign_up_cubit.dart';
-import 'package:advanced_store_project/ui/auth/signup/sign_up.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/check_code.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/cubit/verify_code_cubit.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/model/repo/verify_code_repo.dart';
-import 'package:advanced_store_project/ui/bottom_bar/search/logic/cubit/search_cubit.dart';
-import 'package:advanced_store_project/ui/bottom_bar/search/search_page.dart';
-import 'package:advanced_store_project/ui/translations/cubit/translation_cubit.dart';
-import 'package:advanced_store_project/ui/translations/translation_page.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/di/dependency_injec.dart';
+import 'package:ali_store/core/networking/api_services.dart';
+import 'package:ali_store/ui/auth/login/logic/cubit/login_cubit.dart';
+import 'package:ali_store/ui/auth/login/login.dart';
+import 'package:ali_store/ui/auth/login/password_auth/password_auth_wrapper.dart';
+import 'package:ali_store/ui/auth/signup/widget/verify_code_test_details.dart';
+import 'package:ali_store/ui/bottom_bar/bottom_bar.dart';
+import 'package:ali_store/ui/bottom_bar/details/details_page.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
+import 'package:ali_store/ui/bottom_bar/logic/cubit/bottom_bar_cubit.dart';
+import 'package:ali_store/ui/bottom_bar/home/home.dart';
+import 'package:ali_store/ui/bottom_bar/home/widget/home_pages_wrapper.dart';
+import 'package:ali_store/ui/bottom_bar/items_page/items_page.dart';
+import 'package:ali_store/ui/onboardign/logic/onboarding_cubit_cubit.dart';
+import 'package:ali_store/ui/onboardign/onboarding.dart';
+import 'package:ali_store/ui/auth/signup/logic/cubit/sign_up_cubit.dart';
+import 'package:ali_store/ui/auth/signup/sign_up.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/check_code.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/cubit/verify_code_cubit.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/model/repo/verify_code_repo.dart';
+import 'package:ali_store/ui/bottom_bar/search/logic/cubit/search_cubit.dart';
+import 'package:ali_store/ui/bottom_bar/search/search_page.dart';
+import 'package:ali_store/ui/translations/cubit/translation_cubit.dart';
+import 'package:ali_store/ui/translations/translation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,10 +47,17 @@ class AppRoutes {
       case RoutesName.forgotPassword:
         return MaterialPageRoute(builder: (context) => PasswordAuthWrapper(initialRoute: RoutesName.forgotPassword));
       case RoutesName.checkCode:
-        final email = settings.arguments as String?;
-        return MaterialPageRoute(builder: (_) => CheckCode(email: email ?? ''));
+        final args = settings.arguments as List;
+        return MaterialPageRoute(
+      builder: (context) => CheckCode(
+        email: args[0],
+        verifyCode: args[1],
+      ),
+    );
       case RoutesName.resetPassword:
         return MaterialPageRoute(builder: (context) => PasswordAuthWrapper(initialRoute: RoutesName.resetPassword));
+      case RoutesName.verifyCodeTestDetails:
+        return MaterialPageRoute(builder: (_) => VerifyCodeTestDetails());
         //===============app pages===============
       case RoutesName.bottomBar:
         return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => BottomBarCubit(), child: BottomBar()));

@@ -1,8 +1,9 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/constatnt/languages.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
 
-import 'package:advanced_store_project/core/constatnt/shared_pref_keys.dart';
+import 'package:ali_store/core/constatnt/shared_pref_keys.dart';
 
-import 'package:advanced_store_project/core/services/shared_preferences_helper.dart';
+import 'package:ali_store/core/services/shared_preferences_helper.dart';
 
 import 'package:flutter/widgets.dart';
 
@@ -24,6 +25,9 @@ class Middleware {
 
     return await SharedPreferencesHelper.getBool(SharedPrefKeys.rememberMeKey) ?? false;
 
+  }
+  static Future<String?> isSetLanguage() async {
+    return await SharedPreferencesHelper.getString(Languages.languageKey);
   }
 
   static Future<void> clearLoginData() async {
@@ -49,6 +53,11 @@ class Middleware {
     bool isOnBoardingFinished = await onBoardingFinished();
 
     if (isOnBoardingFinished) {
+      final language = await isSetLanguage();
+      
+      if(language == null) {
+        return RoutesName.translation;
+      }
 
       if (isLogged && isRememberMe) {
 

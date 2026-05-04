@@ -61,14 +61,15 @@ extension HomeEventPatterns on HomeEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Started value)?  started,TResult Function( _DotsChanging value)?  dotsChanging,TResult Function( _GetCategories value)?  getCategories,TResult Function( _GetItems value)?  getItems,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Started value)?  started,TResult Function( _DotsChanging value)?  dotsChanging,TResult Function( _GetCategories value)?  getCategories,TResult Function( _GetItems value)?  getItems,TResult Function( _ChangeFavoriteItem value)?  changeFavoriteItem,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Started() when started != null:
 return started(_that);case _DotsChanging() when dotsChanging != null:
 return dotsChanging(_that);case _GetCategories() when getCategories != null:
 return getCategories(_that);case _GetItems() when getItems != null:
-return getItems(_that);case _:
+return getItems(_that);case _ChangeFavoriteItem() when changeFavoriteItem != null:
+return changeFavoriteItem(_that);case _:
   return orElse();
 
 }
@@ -86,14 +87,15 @@ return getItems(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Started value)  started,required TResult Function( _DotsChanging value)  dotsChanging,required TResult Function( _GetCategories value)  getCategories,required TResult Function( _GetItems value)  getItems,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Started value)  started,required TResult Function( _DotsChanging value)  dotsChanging,required TResult Function( _GetCategories value)  getCategories,required TResult Function( _GetItems value)  getItems,required TResult Function( _ChangeFavoriteItem value)  changeFavoriteItem,}){
 final _that = this;
 switch (_that) {
 case _Started():
 return started(_that);case _DotsChanging():
 return dotsChanging(_that);case _GetCategories():
 return getCategories(_that);case _GetItems():
-return getItems(_that);}
+return getItems(_that);case _ChangeFavoriteItem():
+return changeFavoriteItem(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -107,14 +109,15 @@ return getItems(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Started value)?  started,TResult? Function( _DotsChanging value)?  dotsChanging,TResult? Function( _GetCategories value)?  getCategories,TResult? Function( _GetItems value)?  getItems,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Started value)?  started,TResult? Function( _DotsChanging value)?  dotsChanging,TResult? Function( _GetCategories value)?  getCategories,TResult? Function( _GetItems value)?  getItems,TResult? Function( _ChangeFavoriteItem value)?  changeFavoriteItem,}){
 final _that = this;
 switch (_that) {
 case _Started() when started != null:
 return started(_that);case _DotsChanging() when dotsChanging != null:
 return dotsChanging(_that);case _GetCategories() when getCategories != null:
 return getCategories(_that);case _GetItems() when getItems != null:
-return getItems(_that);case _:
+return getItems(_that);case _ChangeFavoriteItem() when changeFavoriteItem != null:
+return changeFavoriteItem(_that);case _:
   return null;
 
 }
@@ -131,13 +134,14 @@ return getItems(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  started,TResult Function( int index)?  dotsChanging,TResult Function()?  getCategories,TResult Function()?  getItems,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  started,TResult Function( int index)?  dotsChanging,TResult Function()?  getCategories,TResult Function()?  getItems,TResult Function( int itemId,  bool isFavorite)?  changeFavoriteItem,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Started() when started != null:
 return started();case _DotsChanging() when dotsChanging != null:
 return dotsChanging(_that.index);case _GetCategories() when getCategories != null:
 return getCategories();case _GetItems() when getItems != null:
-return getItems();case _:
+return getItems();case _ChangeFavoriteItem() when changeFavoriteItem != null:
+return changeFavoriteItem(_that.itemId,_that.isFavorite);case _:
   return orElse();
 
 }
@@ -155,13 +159,14 @@ return getItems();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  started,required TResult Function( int index)  dotsChanging,required TResult Function()  getCategories,required TResult Function()  getItems,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  started,required TResult Function( int index)  dotsChanging,required TResult Function()  getCategories,required TResult Function()  getItems,required TResult Function( int itemId,  bool isFavorite)  changeFavoriteItem,}) {final _that = this;
 switch (_that) {
 case _Started():
 return started();case _DotsChanging():
 return dotsChanging(_that.index);case _GetCategories():
 return getCategories();case _GetItems():
-return getItems();}
+return getItems();case _ChangeFavoriteItem():
+return changeFavoriteItem(_that.itemId,_that.isFavorite);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -175,13 +180,14 @@ return getItems();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  started,TResult? Function( int index)?  dotsChanging,TResult? Function()?  getCategories,TResult? Function()?  getItems,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  started,TResult? Function( int index)?  dotsChanging,TResult? Function()?  getCategories,TResult? Function()?  getItems,TResult? Function( int itemId,  bool isFavorite)?  changeFavoriteItem,}) {final _that = this;
 switch (_that) {
 case _Started() when started != null:
 return started();case _DotsChanging() when dotsChanging != null:
 return dotsChanging(_that.index);case _GetCategories() when getCategories != null:
 return getCategories();case _GetItems() when getItems != null:
-return getItems();case _:
+return getItems();case _ChangeFavoriteItem() when changeFavoriteItem != null:
+return changeFavoriteItem(_that.itemId,_that.isFavorite);case _:
   return null;
 
 }
@@ -376,6 +382,80 @@ String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
 
 
 /// @nodoc
+
+
+class _ChangeFavoriteItem with DiagnosticableTreeMixin implements HomeEvent {
+  const _ChangeFavoriteItem(this.itemId, this.isFavorite);
+  
+
+ final  int itemId;
+ final  bool isFavorite;
+
+/// Create a copy of HomeEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ChangeFavoriteItemCopyWith<_ChangeFavoriteItem> get copyWith => __$ChangeFavoriteItemCopyWithImpl<_ChangeFavoriteItem>(this, _$identity);
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'HomeEvent.changeFavoriteItem'))
+    ..add(DiagnosticsProperty('itemId', itemId))..add(DiagnosticsProperty('isFavorite', isFavorite));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChangeFavoriteItem&&(identical(other.itemId, itemId) || other.itemId == itemId)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,itemId,isFavorite);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'HomeEvent.changeFavoriteItem(itemId: $itemId, isFavorite: $isFavorite)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ChangeFavoriteItemCopyWith<$Res> implements $HomeEventCopyWith<$Res> {
+  factory _$ChangeFavoriteItemCopyWith(_ChangeFavoriteItem value, $Res Function(_ChangeFavoriteItem) _then) = __$ChangeFavoriteItemCopyWithImpl;
+@useResult
+$Res call({
+ int itemId, bool isFavorite
+});
+
+
+
+
+}
+/// @nodoc
+class __$ChangeFavoriteItemCopyWithImpl<$Res>
+    implements _$ChangeFavoriteItemCopyWith<$Res> {
+  __$ChangeFavoriteItemCopyWithImpl(this._self, this._then);
+
+  final _ChangeFavoriteItem _self;
+  final $Res Function(_ChangeFavoriteItem) _then;
+
+/// Create a copy of HomeEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? itemId = null,Object? isFavorite = null,}) {
+  return _then(_ChangeFavoriteItem(
+null == itemId ? _self.itemId : itemId // ignore: cast_nullable_to_non_nullable
+as int,null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
 mixin _$HomeState implements DiagnosticableTreeMixin {
 
 
@@ -425,7 +505,7 @@ extension HomeStatePatterns on HomeState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _DotsChangingState value)?  dotsChanging,TResult Function( _GetCategoriesLoading value)?  getCategoriesLoading,TResult Function( _GetCategoriesSuccess value)?  getCategoriesSuccess,TResult Function( _GetCategoriesError value)?  getCategoriesError,TResult Function( _GetItemsLoading value)?  getItemsLoading,TResult Function( _GetItemsSuccess value)?  getItemsSuccess,TResult Function( _GetItemsError value)?  getItemsError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _DotsChangingState value)?  dotsChanging,TResult Function( _GetCategoriesLoading value)?  getCategoriesLoading,TResult Function( _GetCategoriesSuccess value)?  getCategoriesSuccess,TResult Function( _GetCategoriesError value)?  getCategoriesError,TResult Function( _GetItemsLoading value)?  getItemsLoading,TResult Function( _GetItemsSuccess value)?  getItemsSuccess,TResult Function( _GetItemsError value)?  getItemsError,TResult Function( _ChangeFavoriteItemState value)?  changeFavoriteItem,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -436,7 +516,8 @@ return getCategoriesSuccess(_that);case _GetCategoriesError() when getCategories
 return getCategoriesError(_that);case _GetItemsLoading() when getItemsLoading != null:
 return getItemsLoading(_that);case _GetItemsSuccess() when getItemsSuccess != null:
 return getItemsSuccess(_that);case _GetItemsError() when getItemsError != null:
-return getItemsError(_that);case _:
+return getItemsError(_that);case _ChangeFavoriteItemState() when changeFavoriteItem != null:
+return changeFavoriteItem(_that);case _:
   return orElse();
 
 }
@@ -454,7 +535,7 @@ return getItemsError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _DotsChangingState value)  dotsChanging,required TResult Function( _GetCategoriesLoading value)  getCategoriesLoading,required TResult Function( _GetCategoriesSuccess value)  getCategoriesSuccess,required TResult Function( _GetCategoriesError value)  getCategoriesError,required TResult Function( _GetItemsLoading value)  getItemsLoading,required TResult Function( _GetItemsSuccess value)  getItemsSuccess,required TResult Function( _GetItemsError value)  getItemsError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _DotsChangingState value)  dotsChanging,required TResult Function( _GetCategoriesLoading value)  getCategoriesLoading,required TResult Function( _GetCategoriesSuccess value)  getCategoriesSuccess,required TResult Function( _GetCategoriesError value)  getCategoriesError,required TResult Function( _GetItemsLoading value)  getItemsLoading,required TResult Function( _GetItemsSuccess value)  getItemsSuccess,required TResult Function( _GetItemsError value)  getItemsError,required TResult Function( _ChangeFavoriteItemState value)  changeFavoriteItem,}){
 final _that = this;
 switch (_that) {
 case _Initial():
@@ -465,7 +546,8 @@ return getCategoriesSuccess(_that);case _GetCategoriesError():
 return getCategoriesError(_that);case _GetItemsLoading():
 return getItemsLoading(_that);case _GetItemsSuccess():
 return getItemsSuccess(_that);case _GetItemsError():
-return getItemsError(_that);}
+return getItemsError(_that);case _ChangeFavoriteItemState():
+return changeFavoriteItem(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -479,7 +561,7 @@ return getItemsError(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _DotsChangingState value)?  dotsChanging,TResult? Function( _GetCategoriesLoading value)?  getCategoriesLoading,TResult? Function( _GetCategoriesSuccess value)?  getCategoriesSuccess,TResult? Function( _GetCategoriesError value)?  getCategoriesError,TResult? Function( _GetItemsLoading value)?  getItemsLoading,TResult? Function( _GetItemsSuccess value)?  getItemsSuccess,TResult? Function( _GetItemsError value)?  getItemsError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _DotsChangingState value)?  dotsChanging,TResult? Function( _GetCategoriesLoading value)?  getCategoriesLoading,TResult? Function( _GetCategoriesSuccess value)?  getCategoriesSuccess,TResult? Function( _GetCategoriesError value)?  getCategoriesError,TResult? Function( _GetItemsLoading value)?  getItemsLoading,TResult? Function( _GetItemsSuccess value)?  getItemsSuccess,TResult? Function( _GetItemsError value)?  getItemsError,TResult? Function( _ChangeFavoriteItemState value)?  changeFavoriteItem,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -490,7 +572,8 @@ return getCategoriesSuccess(_that);case _GetCategoriesError() when getCategories
 return getCategoriesError(_that);case _GetItemsLoading() when getItemsLoading != null:
 return getItemsLoading(_that);case _GetItemsSuccess() when getItemsSuccess != null:
 return getItemsSuccess(_that);case _GetItemsError() when getItemsError != null:
-return getItemsError(_that);case _:
+return getItemsError(_that);case _ChangeFavoriteItemState() when changeFavoriteItem != null:
+return changeFavoriteItem(_that);case _:
   return null;
 
 }
@@ -507,7 +590,7 @@ return getItemsError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( int index)?  dotsChanging,TResult Function()?  getCategoriesLoading,TResult Function( CategorieResponseData data)?  getCategoriesSuccess,TResult Function()?  getCategoriesError,TResult Function()?  getItemsLoading,TResult Function( ItemsResponseData data)?  getItemsSuccess,TResult Function()?  getItemsError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( int index)?  dotsChanging,TResult Function()?  getCategoriesLoading,TResult Function( CategorieResponseData data)?  getCategoriesSuccess,TResult Function()?  getCategoriesError,TResult Function()?  getItemsLoading,TResult Function( ItemsResponseData data)?  getItemsSuccess,TResult Function()?  getItemsError,TResult Function( int itemId,  bool isFavorite)?  changeFavoriteItem,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _DotsChangingState() when dotsChanging != null:
@@ -517,7 +600,8 @@ return getCategoriesSuccess(_that.data);case _GetCategoriesError() when getCateg
 return getCategoriesError();case _GetItemsLoading() when getItemsLoading != null:
 return getItemsLoading();case _GetItemsSuccess() when getItemsSuccess != null:
 return getItemsSuccess(_that.data);case _GetItemsError() when getItemsError != null:
-return getItemsError();case _:
+return getItemsError();case _ChangeFavoriteItemState() when changeFavoriteItem != null:
+return changeFavoriteItem(_that.itemId,_that.isFavorite);case _:
   return orElse();
 
 }
@@ -535,7 +619,7 @@ return getItemsError();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( int index)  dotsChanging,required TResult Function()  getCategoriesLoading,required TResult Function( CategorieResponseData data)  getCategoriesSuccess,required TResult Function()  getCategoriesError,required TResult Function()  getItemsLoading,required TResult Function( ItemsResponseData data)  getItemsSuccess,required TResult Function()  getItemsError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( int index)  dotsChanging,required TResult Function()  getCategoriesLoading,required TResult Function( CategorieResponseData data)  getCategoriesSuccess,required TResult Function()  getCategoriesError,required TResult Function()  getItemsLoading,required TResult Function( ItemsResponseData data)  getItemsSuccess,required TResult Function()  getItemsError,required TResult Function( int itemId,  bool isFavorite)  changeFavoriteItem,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _DotsChangingState():
@@ -545,7 +629,8 @@ return getCategoriesSuccess(_that.data);case _GetCategoriesError():
 return getCategoriesError();case _GetItemsLoading():
 return getItemsLoading();case _GetItemsSuccess():
 return getItemsSuccess(_that.data);case _GetItemsError():
-return getItemsError();}
+return getItemsError();case _ChangeFavoriteItemState():
+return changeFavoriteItem(_that.itemId,_that.isFavorite);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -559,7 +644,7 @@ return getItemsError();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( int index)?  dotsChanging,TResult? Function()?  getCategoriesLoading,TResult? Function( CategorieResponseData data)?  getCategoriesSuccess,TResult? Function()?  getCategoriesError,TResult? Function()?  getItemsLoading,TResult? Function( ItemsResponseData data)?  getItemsSuccess,TResult? Function()?  getItemsError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( int index)?  dotsChanging,TResult? Function()?  getCategoriesLoading,TResult? Function( CategorieResponseData data)?  getCategoriesSuccess,TResult? Function()?  getCategoriesError,TResult? Function()?  getItemsLoading,TResult? Function( ItemsResponseData data)?  getItemsSuccess,TResult? Function()?  getItemsError,TResult? Function( int itemId,  bool isFavorite)?  changeFavoriteItem,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _DotsChangingState() when dotsChanging != null:
@@ -569,7 +654,8 @@ return getCategoriesSuccess(_that.data);case _GetCategoriesError() when getCateg
 return getCategoriesError();case _GetItemsLoading() when getItemsLoading != null:
 return getItemsLoading();case _GetItemsSuccess() when getItemsSuccess != null:
 return getItemsSuccess(_that.data);case _GetItemsError() when getItemsError != null:
-return getItemsError();case _:
+return getItemsError();case _ChangeFavoriteItemState() when changeFavoriteItem != null:
+return changeFavoriteItem(_that.itemId,_that.isFavorite);case _:
   return null;
 
 }
@@ -982,5 +1068,79 @@ String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
 
 
 
+
+/// @nodoc
+
+
+class _ChangeFavoriteItemState with DiagnosticableTreeMixin implements HomeState {
+  const _ChangeFavoriteItemState(this.itemId, this.isFavorite);
+  
+
+ final  int itemId;
+ final  bool isFavorite;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ChangeFavoriteItemStateCopyWith<_ChangeFavoriteItemState> get copyWith => __$ChangeFavoriteItemStateCopyWithImpl<_ChangeFavoriteItemState>(this, _$identity);
+
+
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'HomeState.changeFavoriteItem'))
+    ..add(DiagnosticsProperty('itemId', itemId))..add(DiagnosticsProperty('isFavorite', isFavorite));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChangeFavoriteItemState&&(identical(other.itemId, itemId) || other.itemId == itemId)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,itemId,isFavorite);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'HomeState.changeFavoriteItem(itemId: $itemId, isFavorite: $isFavorite)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ChangeFavoriteItemStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory _$ChangeFavoriteItemStateCopyWith(_ChangeFavoriteItemState value, $Res Function(_ChangeFavoriteItemState) _then) = __$ChangeFavoriteItemStateCopyWithImpl;
+@useResult
+$Res call({
+ int itemId, bool isFavorite
+});
+
+
+
+
+}
+/// @nodoc
+class __$ChangeFavoriteItemStateCopyWithImpl<$Res>
+    implements _$ChangeFavoriteItemStateCopyWith<$Res> {
+  __$ChangeFavoriteItemStateCopyWithImpl(this._self, this._then);
+
+  final _ChangeFavoriteItemState _self;
+  final $Res Function(_ChangeFavoriteItemState) _then;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? itemId = null,Object? isFavorite = null,}) {
+  return _then(_ChangeFavoriteItemState(
+null == itemId ? _self.itemId : itemId // ignore: cast_nullable_to_non_nullable
+as int,null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
 
 // dart format on

@@ -1,4 +1,4 @@
-import 'package:advanced_store_project/core/constatnt/colors.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';

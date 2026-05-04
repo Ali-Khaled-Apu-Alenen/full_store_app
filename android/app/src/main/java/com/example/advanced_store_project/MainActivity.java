@@ -1,4 +1,4 @@
-package com.example.advanced_store_project;
+package com.example.ali_store;
 
 import io.flutter.embedding.android.FlutterActivity;
 

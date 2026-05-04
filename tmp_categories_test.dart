@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:advanced_store_project/core/networking/api_constants.dart';
+import 'package:ali_store/core/networking/api_constants.dart';
 
 void main() async {
   final dio = Dio();
