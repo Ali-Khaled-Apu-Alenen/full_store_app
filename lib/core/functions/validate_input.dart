@@ -1,4 +1,4 @@
-import 'package:advanced_store_project/core/helper/app_regex.dart';
+import 'package:ali_store/core/helper/app_regex.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 validateInput(val,min,max ,type){

@@ -134,15 +134,15 @@ return toggleRememberMe(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( T data)?  success,TResult Function( String message)?  failure,TResult Function()?  togglePassword,TResult Function()?  toggleRememberMe,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( T data)?  success,TResult Function( String message)?  failure,TResult Function( bool passwordVisible)?  togglePassword,TResult Function( bool rememberMe)?  toggleRememberMe,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
 return loading();case _Success() when success != null:
 return success(_that.data);case _Failure() when failure != null:
 return failure(_that.message);case _TogglePassword() when togglePassword != null:
-return togglePassword();case _ToggleRememberMe() when toggleRememberMe != null:
-return toggleRememberMe();case _:
+return togglePassword(_that.passwordVisible);case _ToggleRememberMe() when toggleRememberMe != null:
+return toggleRememberMe(_that.rememberMe);case _:
   return orElse();
 
 }
@@ -160,15 +160,15 @@ return toggleRememberMe();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( T data)  success,required TResult Function( String message)  failure,required TResult Function()  togglePassword,required TResult Function()  toggleRememberMe,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( T data)  success,required TResult Function( String message)  failure,required TResult Function( bool passwordVisible)  togglePassword,required TResult Function( bool rememberMe)  toggleRememberMe,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _Loading():
 return loading();case _Success():
 return success(_that.data);case _Failure():
 return failure(_that.message);case _TogglePassword():
-return togglePassword();case _ToggleRememberMe():
-return toggleRememberMe();case _:
+return togglePassword(_that.passwordVisible);case _ToggleRememberMe():
+return toggleRememberMe(_that.rememberMe);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -185,15 +185,15 @@ return toggleRememberMe();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( T data)?  success,TResult? Function( String message)?  failure,TResult? Function()?  togglePassword,TResult? Function()?  toggleRememberMe,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( T data)?  success,TResult? Function( String message)?  failure,TResult? Function( bool passwordVisible)?  togglePassword,TResult? Function( bool rememberMe)?  toggleRememberMe,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
 return loading();case _Success() when success != null:
 return success(_that.data);case _Failure() when failure != null:
 return failure(_that.message);case _TogglePassword() when togglePassword != null:
-return togglePassword();case _ToggleRememberMe() when toggleRememberMe != null:
-return toggleRememberMe();case _:
+return togglePassword(_that.passwordVisible);case _ToggleRememberMe() when toggleRememberMe != null:
+return toggleRememberMe(_that.rememberMe);case _:
   return null;
 
 }
@@ -401,64 +401,132 @@ as String,
 
 
 class _TogglePassword<T> implements LoginState<T> {
-  const _TogglePassword();
+  const _TogglePassword(this.passwordVisible);
   
 
+ final  bool passwordVisible;
 
-
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TogglePasswordCopyWith<T, _TogglePassword<T>> get copyWith => __$TogglePasswordCopyWithImpl<T, _TogglePassword<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TogglePassword<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TogglePassword<T>&&(identical(other.passwordVisible, passwordVisible) || other.passwordVisible == passwordVisible));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,passwordVisible);
 
 @override
 String toString() {
-  return 'LoginState<$T>.togglePassword()';
+  return 'LoginState<$T>.togglePassword(passwordVisible: $passwordVisible)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$TogglePasswordCopyWith<T,$Res> implements $LoginStateCopyWith<T, $Res> {
+  factory _$TogglePasswordCopyWith(_TogglePassword<T> value, $Res Function(_TogglePassword<T>) _then) = __$TogglePasswordCopyWithImpl;
+@useResult
+$Res call({
+ bool passwordVisible
+});
 
 
+
+
+}
+/// @nodoc
+class __$TogglePasswordCopyWithImpl<T,$Res>
+    implements _$TogglePasswordCopyWith<T, $Res> {
+  __$TogglePasswordCopyWithImpl(this._self, this._then);
+
+  final _TogglePassword<T> _self;
+  final $Res Function(_TogglePassword<T>) _then;
+
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? passwordVisible = null,}) {
+  return _then(_TogglePassword<T>(
+null == passwordVisible ? _self.passwordVisible : passwordVisible // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
 
 class _ToggleRememberMe<T> implements LoginState<T> {
-  const _ToggleRememberMe();
+  const _ToggleRememberMe(this.rememberMe);
   
 
+ final  bool rememberMe;
 
-
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ToggleRememberMeCopyWith<T, _ToggleRememberMe<T>> get copyWith => __$ToggleRememberMeCopyWithImpl<T, _ToggleRememberMe<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToggleRememberMe<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToggleRememberMe<T>&&(identical(other.rememberMe, rememberMe) || other.rememberMe == rememberMe));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,rememberMe);
 
 @override
 String toString() {
-  return 'LoginState<$T>.toggleRememberMe()';
+  return 'LoginState<$T>.toggleRememberMe(rememberMe: $rememberMe)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$ToggleRememberMeCopyWith<T,$Res> implements $LoginStateCopyWith<T, $Res> {
+  factory _$ToggleRememberMeCopyWith(_ToggleRememberMe<T> value, $Res Function(_ToggleRememberMe<T>) _then) = __$ToggleRememberMeCopyWithImpl;
+@useResult
+$Res call({
+ bool rememberMe
+});
 
 
+
+
+}
+/// @nodoc
+class __$ToggleRememberMeCopyWithImpl<T,$Res>
+    implements _$ToggleRememberMeCopyWith<T, $Res> {
+  __$ToggleRememberMeCopyWithImpl(this._self, this._then);
+
+  final _ToggleRememberMe<T> _self;
+  final $Res Function(_ToggleRememberMe<T>) _then;
+
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? rememberMe = null,}) {
+  return _then(_ToggleRememberMe<T>(
+null == rememberMe ? _self.rememberMe : rememberMe // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
 
 // dart format on

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/styles/font_weights.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/styles/font_weights.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextStyles {
@@ -19,6 +19,12 @@ class TextStyles {
     color: AppColors.white,
     
   );
+  static const TextStyle font14RegularWhite = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeights.regular,
+    color: AppColors.white,
+    
+  );
   static const TextStyle font16Medium = TextStyle(
     fontSize: 16,
     fontWeight: FontWeights.medium,
@@ -26,6 +32,15 @@ class TextStyles {
   static const TextStyle font16SimiBold = TextStyle(
     fontSize: 16,
     fontWeight: FontWeights.semiBold,
+  );
+  static const TextStyle font20SimiBold = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeights.semiBold,
+  );
+  static const TextStyle font16SimiBoldPrimary = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeights.semiBold,
+    color: HomeColors.primaryColor,
   );
   static const TextStyle font14RegularDarkGrey = TextStyle(
     fontSize: 14,
@@ -41,6 +56,16 @@ class TextStyles {
     fontSize: 24,
     fontWeight: FontWeights.medium,
     color: AppColors.extraDarkGrey,
+  );
+  static const TextStyle font28BoldWhite = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeights.bold,
+    color: AppColors.white,
+  );
+  static const TextStyle font28BoldPrimary = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeights.bold,
+    color: AppColors.primaryColor,
   );
 }
 

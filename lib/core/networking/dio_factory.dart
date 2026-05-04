@@ -1,7 +1,7 @@
 
 
-import 'package:advanced_store_project/core/constatnt/shared_pref_keys.dart';
-import 'package:advanced_store_project/core/services/shared_preferences_helper.dart';
+import 'package:ali_store/core/constatnt/shared_pref_keys.dart';
+import 'package:ali_store/core/services/shared_preferences_helper.dart';
 import 'package:dio/dio.dart';
 
 class DioFactory {

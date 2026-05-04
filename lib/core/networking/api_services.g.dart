@@ -109,7 +109,7 @@ class _ApiServices implements ApiServices {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<String>(_options);
-    String? _value;
+    late String _value;
     try {
       _value = _result.data!;
     } on Object catch (e, s) {

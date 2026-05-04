@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/cubit/sign_up_state.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/model/repo/sign_up_repo.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/model/sign_up_request_data.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/ui/auth/signup/logic/cubit/sign_up_state.dart';
+import 'package:ali_store/ui/auth/signup/logic/model/repo/sign_up_repo.dart';
+import 'package:ali_store/ui/auth/signup/logic/model/sign_up_request_data.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -21,6 +21,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       print("not valid");
     }
   }
+
   emitSignUpStates({
     required String email,
     required String phone,
@@ -28,7 +29,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     required BuildContext context,
   }) async {
     emit(SignUpState.loading());
-    
+
     print('2. Calling signup repository...');
     final response = await _signupRepo.signup(
       SignUpRequestData(
@@ -48,8 +49,13 @@ class SignUpCubit extends Cubit<SignUpState> {
         print('   User Data: ${data.userData}');
         print('   Timestamp: ${DateTime.now()}');
         print('=== SIGNUP PROCESS COMPLETED SUCCESSFULLY ===\n');
+        print(data.verifyCode);
         emit(SignUpState.success(data));
-        Navigator.pushNamed(context, RoutesName.checkCode, arguments: email);
+        Navigator.pushNamed(
+          context,
+          RoutesName.checkCode,
+          arguments: [email, data.userData.verify_code],
+        );
       },
       failure: (error) {
         print('4. FAILURE - Emitting error state');

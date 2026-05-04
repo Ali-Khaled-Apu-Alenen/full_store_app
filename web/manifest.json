@@ -1,6 +1,6 @@
 {
-    "name": "advanced_store_project",
-    "short_name": "advanced_store_project",
+    "name": "ali_store",
+    "short_name": "ali_store",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
