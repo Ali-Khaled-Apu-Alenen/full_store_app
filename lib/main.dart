@@ -1,12 +1,13 @@
 import 'dart:ui' as ui;
 
-import 'package:advanced_store_project/core/constatnt/languages.dart';
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/routes/app_routes.dart';
-import 'package:advanced_store_project/core/di/dependency_injec.dart';
-import 'package:advanced_store_project/core/services/shared_preferences_helper.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/middleware.dart';
+import 'package:ali_store/core/constatnt/languages.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/routes/app_routes.dart';
+import 'package:ali_store/core/di/dependency_injec.dart';
+import 'package:ali_store/core/services/shared_preferences_helper.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
+import 'package:ali_store/middleware.dart';
+import 'package:ali_store/ui/auth/login/login.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ void main() async {
   final savedLocale = await SharedPreferencesHelper.getString(
     Languages.languageKey,
   );
+  
   final initLocal = savedLocale != null
       ? Locale(savedLocale)
       : Locale(deviceLocale);
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       onGenerateRoute: AppRoutes.onboardingRoute,
-      initialRoute: RoutesName.home,
+      initialRoute:initPage,
     );
   }
 }

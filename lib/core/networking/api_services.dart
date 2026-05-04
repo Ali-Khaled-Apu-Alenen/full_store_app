@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/networking/api_constants.dart';
-import 'package:advanced_store_project/core/networking/parse_error_logger.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/model/login_request_date.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/model/sign_up_request_data.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
+import 'package:ali_store/core/networking/api_constants.dart';
+import 'package:ali_store/core/networking/parse_error_logger.dart';
+import 'package:ali_store/ui/auth/login/logic/model/login_request_date.dart';
+import 'package:ali_store/ui/auth/signup/logic/model/sign_up_request_data.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 part 'api_services.g.dart';

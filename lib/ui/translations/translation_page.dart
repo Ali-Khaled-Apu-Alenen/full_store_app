@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/constatnt/languages.dart';
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/routes/app_routes.dart';
-import 'package:advanced_store_project/core/routes/navigation_extentions.dart';
-import 'package:advanced_store_project/ui/translations/cubit/translation_cubit.dart';
+import 'package:ali_store/core/constatnt/languages.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/routes/app_routes.dart';
+import 'package:ali_store/core/routes/navigation_extentions.dart';
+import 'package:ali_store/ui/translations/cubit/translation_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';

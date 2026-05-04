@@ -10,6 +10,6 @@ SignUpResponse _$SignUpResponseFromJson(Map<String, dynamic> json) =>
     SignUpResponse(
       message: json['message'] as String?,
       status: json['status'] as bool?,
-      userData: json['userData'],
-      verifyCode: json['verifyCode'],
+      userData: UserData.fromJson(json['userData'] as Map<String, dynamic>),
+      verifyCode: json['verifyCode'] as String?,
     );

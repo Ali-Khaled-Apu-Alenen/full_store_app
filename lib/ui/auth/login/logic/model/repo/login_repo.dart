@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/networking/api_error_model.dart';
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/core/networking/api_services.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/model/login_request_date.dart';
-import 'package:advanced_store_project/ui/auth/login/logic/model/login_respose_data.dart';
+import 'package:ali_store/core/networking/api_error_model.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/core/networking/api_services.dart';
+import 'package:ali_store/ui/auth/login/logic/model/login_request_date.dart';
+import 'package:ali_store/ui/auth/login/logic/model/login_respose_data.dart';
 
 class LoginRepo {
   final ApiServices _apiService;

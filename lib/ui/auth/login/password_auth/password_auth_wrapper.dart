@@ -1,4 +1,4 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'logic/bloc/password_auth_bloc.dart';

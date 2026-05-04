@@ -1,19 +1,19 @@
 import 'dart:math';
 
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/functions/validate_input.dart';
-import 'package:advanced_store_project/core/networking/user_errorhandler.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
-import 'package:advanced_store_project/ui/auth/login/widget/textforms.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/cubit/sign_up_cubit.dart';
-import 'package:advanced_store_project/ui/auth/signup/logic/cubit/sign_up_state.dart';
-import 'package:advanced_store_project/ui/auth/signup/widget/background_signup.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/functions/validate_input.dart';
+import 'package:ali_store/core/networking/user_errorhandler.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
+import 'package:ali_store/ui/auth/login/widget/textforms.dart';
+import 'package:ali_store/ui/auth/signup/logic/cubit/sign_up_cubit.dart';
+import 'package:ali_store/ui/auth/signup/logic/cubit/sign_up_state.dart';
+import 'package:ali_store/ui/auth/signup/widget/background_signup.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:advanced_store_project/core/di/dependency_injec.dart';
+import 'package:ali_store/core/di/dependency_injec.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});

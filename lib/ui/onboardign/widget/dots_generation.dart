@@ -1,6 +1,6 @@
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/data/onboardinglist/onboarding_static.dart';
-import 'package:advanced_store_project/ui/onboardign/logic/onboarding_cubit_cubit.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/data/onboardinglist/onboarding_static.dart';
+import 'package:ali_store/ui/onboardign/logic/onboarding_cubit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

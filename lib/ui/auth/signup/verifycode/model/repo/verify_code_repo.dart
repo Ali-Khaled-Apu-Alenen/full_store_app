@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/networking/api_error_model.dart';
-import 'package:advanced_store_project/core/networking/api_result.dart';
-import 'package:advanced_store_project/core/networking/api_services.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
-import 'package:advanced_store_project/ui/auth/signup/verifycode/model/verify_code_response_data.dart';
+import 'package:ali_store/core/networking/api_error_model.dart';
+import 'package:ali_store/core/networking/api_result.dart';
+import 'package:ali_store/core/networking/api_services.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
+import 'package:ali_store/ui/auth/signup/verifycode/model/verify_code_response_data.dart';
 
 class VerifyCodeRepo {
   final ApiServices _apiServices;

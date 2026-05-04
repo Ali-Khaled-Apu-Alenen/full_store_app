@@ -1,5 +1,5 @@
 
-import 'package:advanced_store_project/core/networking/api_error_model.dart';
+import 'package:ali_store/core/networking/api_error_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'api_result.freezed.dart';
 // part 'api_result.g.dart';

@@ -1,8 +1,8 @@
-import 'package:advanced_store_project/core/constatnt/routes_name.dart';
-import 'package:advanced_store_project/core/constatnt/shared_pref_keys.dart';
-import 'package:advanced_store_project/core/routes/navigation_extentions.dart';
-import 'package:advanced_store_project/core/services/shared_preferences_helper.dart';
-import 'package:advanced_store_project/data/onboardinglist/onboarding_static.dart';
+import 'package:ali_store/core/constatnt/routes_name.dart';
+import 'package:ali_store/core/constatnt/shared_pref_keys.dart';
+import 'package:ali_store/core/routes/navigation_extentions.dart';
+import 'package:ali_store/core/services/shared_preferences_helper.dart';
+import 'package:ali_store/data/onboardinglist/onboarding_static.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -40,7 +40,9 @@ class OnboardingCubitCubit extends Cubit<OnboardingCubitState> {
       true,
     );
 
-    context.pushReplacementNamedPage(RoutesName.login);
+    if (context.mounted) {
+      context.pushReplacementNamedPage(RoutesName.translation);
+    }
   }
 
     

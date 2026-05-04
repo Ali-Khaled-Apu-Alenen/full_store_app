@@ -1,5 +1,5 @@
-import 'package:advanced_store_project/core/constatnt/colors.dart';
-import 'package:advanced_store_project/core/styles/text_styles.dart';
+import 'package:ali_store/core/constatnt/colors.dart';
+import 'package:ali_store/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_utils/src/extensions/export.dart';
