@@ -10,7 +10,7 @@ import 'package:ali_store/ui/bottom_bar/details/details_page.dart';
 import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
 import 'package:ali_store/ui/bottom_bar/logic/cubit/bottom_bar_cubit.dart';
 import 'package:ali_store/ui/bottom_bar/home/home.dart';
-import 'package:ali_store/ui/bottom_bar/home/widget/home_pages_wrapper.dart';
+import 'package:ali_store/ui/bottom_bar/home/logic/bloc/home_bloc.dart';
 import 'package:ali_store/ui/bottom_bar/items_page/items_page.dart';
 import 'package:ali_store/ui/onboardign/logic/onboarding_cubit_cubit.dart';
 import 'package:ali_store/ui/onboardign/onboarding.dart';
@@ -62,7 +62,8 @@ class AppRoutes {
       case RoutesName.bottomBar:
         return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => BottomBarCubit(), child: BottomBar()));
       case RoutesName.items:
-        return MaterialPageRoute(builder: (_) => HomePagesWrapper(initialRoute: RoutesName.items));
+        final categoryId = settings.arguments as int?;
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => getIt<HomeBloc>(), child: ItemsPage(categoryId: categoryId ?? 0)));
       case RoutesName.search:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
@@ -80,7 +81,7 @@ class AppRoutes {
           ),
         );  
       default:
-        return MaterialPageRoute(builder: (context) => Scaffold(body: Text("Error")));
+        return MaterialPageRoute(builder: (_) => BlocProvider(create: (_) => BottomBarCubit(), child: BottomBar()));
     }
   }
 

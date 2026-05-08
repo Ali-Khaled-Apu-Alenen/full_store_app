@@ -9,6 +9,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FeaturedListView extends StatefulWidget {
   FeaturedListView({Key? key}) : super(key: key);
@@ -59,9 +60,9 @@ class _FeaturedListViewState extends State<FeaturedListView> {
           getCategoriesSuccess: (CategorieResponseData data) {
             final categories = data.data;
             return Container(
-              margin: EdgeInsets.only(left: 18),
-              width: 410,
-              height: 142,
+              margin: EdgeInsets.only(left: 18.w),
+              width: 410.w,
+              height: 142.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
@@ -69,17 +70,17 @@ class _FeaturedListViewState extends State<FeaturedListView> {
                   return InkWell(
                     onTap: () {
                       Navigator.of(context).pushNamed(RoutesName.items, arguments: categories[index].id);
-                      print(categories[index].id);
-                      // TODO: Navigate to category details
+                      // print(categories[index].id);
+                
                     },
                     child: Container(
-                      margin: EdgeInsets.only(right: 16),
+                      margin: EdgeInsets.only(right: 16.w),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 99,
-                            width: 126,
+                            height: 99.h,
+                            width: 126.w,
                             child: Stack(
                               children: [
                                 _buildCategoryImage(categories[index].image),
@@ -97,7 +98,7 @@ class _FeaturedListViewState extends State<FeaturedListView> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 2),
+                          SizedBox(height: 2.h),
                           Text(
                             categories[index].name,
                             style: TextStyles.font14SimiBoldBlack,

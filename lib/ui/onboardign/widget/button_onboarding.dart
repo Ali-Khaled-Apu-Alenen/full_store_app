@@ -5,6 +5,7 @@ import 'package:ali_store/core/routes/navigation_extentions.dart';
 import 'package:ali_store/ui/onboardign/logic/onboarding_cubit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonOnboarding extends StatelessWidget {
   const ButtonOnboarding({Key? key}) : super(key: key);
@@ -12,8 +13,8 @@ class ButtonOnboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 170,
-      height: 60,
+      width: 170.w,
+      height: 40.h,
       child: BlocBuilder<OnboardingCubitCubit, OnboardingCubitState>(
         builder: (context, state) {
           final cubit = context.read<OnboardingCubitCubit>();

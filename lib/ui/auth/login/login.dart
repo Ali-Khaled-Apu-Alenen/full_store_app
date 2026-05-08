@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -128,24 +129,24 @@ class _LoginState extends State<Login> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 368),
+                              SizedBox(height: 368.h),
                               Container(
-                                margin: EdgeInsets.only(left: 24),
+                                margin: EdgeInsets.only(left: 24.w),
                                 child: Text(
                                   "login.Sign in",
                                   style: TextStyles.font38MediumExtraDark,
                                 ).tr(),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 24, right: 24),
-                                width: 74,
-                                height: 4,
+                                margin: EdgeInsets.only(left: 24.w, right: 24.w),
+                                width: 74.w,
+                                height: 4.h,
                                 color: AppColors.primaryLoginColor,
                               ),
-                              SizedBox(height: 45),
+                              SizedBox(height: 45.h),
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                height: 62,
+                                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                height: 62.h,
                                 child: Textforms(
                                   controller: email,
                                   validator: (value) {
@@ -157,10 +158,10 @@ class _LoginState extends State<Login> {
                                   imageIcon: "asset/svgs/mail_icon.svg",
                                 ),
                               ),
-                              SizedBox(height: 22),
+                              SizedBox(height: 22.h),
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                height: 62,
+                                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                height: 62.h,
                                 child: BlocBuilder<LoginCubit, LoginState>(
                                   builder: (context, state) {
                                     return Textforms(
@@ -192,9 +193,9 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
 
-                              SizedBox(height: 16),
+                              SizedBox(height: 16.h),
                               RememberMe(isChecked: isRememberMe),
-                              SizedBox(height: 100),
+                              SizedBox(height: 70.h),
                               Center(
                                 child: LoginButton(
                                   onPressed: () async {
@@ -210,11 +211,11 @@ class _LoginState extends State<Login> {
                                   },
                                 ),
                               ),
-                              SizedBox(height: 16),
+                              SizedBox(height: 10.h),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("didnt have account? "),
+                                  Text("signUp.didnt have account?").tr(),
                                   InkWell(
                                     child: Text(
                                       "signUp.Sign Up",
@@ -232,6 +233,7 @@ class _LoginState extends State<Login> {
                                   ),
                                 ],
                               ),
+                              SizedBox(height: 10.h),
                             ],
                           ),
                         ),

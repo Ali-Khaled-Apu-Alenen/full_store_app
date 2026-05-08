@@ -11,21 +11,22 @@ import 'package:ali_store/ui/auth/login/login.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   await setupGetIt();
-  final deviceLocale =
-      ui.PlatformDispatcher.instance.locale.toString() == "en_US" ? "en" : "ar";
+  // final deviceLocale =
+  //     ui.PlatformDispatcher.instance.locale.toString() == "en_US" ? "en" : "ar";
   final savedLocale = await SharedPreferencesHelper.getString(
     Languages.languageKey,
   );
   
   final initLocal = savedLocale != null
       ? Locale(savedLocale)
-      : Locale(deviceLocale);
+      : Locale("en");
   bool checkOnBoarding = await Middleware.onBoardingFinished();
   final initPage = await Middleware.setUserPhase();
 
@@ -51,7 +52,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      builder: (context, child) {
+        return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: context.locale,
       theme: AppThemes.getTheme(context.locale),
@@ -59,6 +63,8 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       onGenerateRoute: AppRoutes.onboardingRoute,
       initialRoute:initPage,
+    );
+      },
     );
   }
 }

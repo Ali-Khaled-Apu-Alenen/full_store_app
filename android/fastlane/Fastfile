@@ -1,0 +1,20 @@
+default_platform(:android)
+
+platform :android do
+  desc "Build and upload to Firebase"
+
+  lane :firebase do
+    # sh("cd android")
+    sh("flutter clean")
+    build_number = Time.now.to_i # or CI build number
+
+    sh("flutter pub get")
+    sh("flutter build apk --release --build-number=#{build_number}")
+
+    firebase_app_distribution(
+      app: "1:247168341628:android:fe8999a3a7bfbfc4a91bf9",
+      apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
+      testers: "aaali556780@gmail.com,alikhaled722006@gmail.com"
+    )
+  end
+end

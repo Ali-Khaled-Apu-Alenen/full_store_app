@@ -9,6 +9,25 @@
       "client_info": {
         "mobilesdk_app_id": "1:247168341628:android:617300eb3d6d6679a91bf9",
         "android_client_info": {
+          "package_name": "com.example.advanced_store_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq4X54GS5Q0rruqAb0Ui3A64Rx-wroCVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247168341628:android:fe8999a3a7bfbfc4a91bf9",
+        "android_client_info": {
           "package_name": "com.example.ali_store"
         }
       },

@@ -10,6 +10,7 @@ import 'package:ali_store/ui/auth/login/widget/textforms.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -29,11 +30,11 @@ class ResetPassword extends StatelessWidget {
               child: BackgroundLogin(),
             ),
             Positioned(
-              top: 20,
+              top: 20.h,
               left: 0,
               right: 0,
               child: Container(
-                height: 60,
+                height: 60.h,
                 color: Colors.transparent,
                 child: Row(
                   children: [
@@ -51,31 +52,31 @@ class ResetPassword extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 370),
+                    SizedBox(height: 370.h),
                     Container(
-                      margin: EdgeInsets.only(left: 16),
+                      margin: EdgeInsets.only(left: 16.w),
                       child: Text(
                         "forgetPassword.Forget Password",
                         style: TextStyles.font24MediumExtraDark,
                       ).tr(),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 24, right: 24),
-                      width: 100,
-                      height: 4,
+                      margin: EdgeInsets.only(left: 24.w, right: 24.w),
+                      width: 100.w,
+                      height: 4.h,
                       color: AppColors.primaryLoginColor,
                     ),
-                    SizedBox(height: 22),
+                    SizedBox(height: 22.h),
                     Center(
                       child: Text(
                         "resetPassword.Reset Password",
                         textAlign: TextAlign.center,
                       ).tr(),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 24),
-                      height: 62,
+                      margin: EdgeInsets.symmetric(horizontal: 24.w),
+                      height: 62.h,
                       child: Textforms(
                         controller: context
                             .read<PasswordAuthBloc>()
@@ -89,10 +90,10 @@ class ResetPassword extends StatelessWidget {
                         imageIcon: "asset/svgs/mail_icon.svg",
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 24),
-                      height: 62,
+                      margin: EdgeInsets.symmetric(horizontal: 24.w),
+                      height: 62.h,
                       child: Textforms(
                         controller: context
                             .read<PasswordAuthBloc>()
@@ -107,7 +108,7 @@ class ResetPassword extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 50),
+                    SizedBox(height: 50.h),
                     BlocListener<PasswordAuthBloc, PasswordAuthState>(
                       listener: (context, state) {
                         if (state is PasswordConfermationSuccess) {

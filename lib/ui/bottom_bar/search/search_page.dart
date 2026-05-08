@@ -8,6 +8,7 @@ import 'package:ali_store/ui/bottom_bar/search/logic/cubit/search_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -49,7 +50,7 @@ class _SearchPageState extends State<SearchPage> {
                       icon: const Icon(Icons.arrow_back),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Expanded(
                     child: SearchBarCostum(
                       searchController: TextEditingController(),
@@ -113,6 +114,7 @@ class _SearchPageState extends State<SearchPage> {
                                       index,
                                     ) {
                                       return CustomGridView(
+                                        itemId: items[index].item_id,
                                         onPreased: () {
                                           Navigator.of(
                                             context,

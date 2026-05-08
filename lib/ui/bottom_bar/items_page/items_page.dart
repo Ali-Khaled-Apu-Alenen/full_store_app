@@ -61,6 +61,7 @@ class ItemsPage extends StatelessWidget {
                         itemCount: chosenItems.length,
                         itemBuilder: (context, index) {
                           return CustomGridView(
+                            itemId: chosenItems[index].item_id,
                             onPreased: () {
                               Navigator.of(context, rootNavigator: true).push(
                         MaterialPageRoute(

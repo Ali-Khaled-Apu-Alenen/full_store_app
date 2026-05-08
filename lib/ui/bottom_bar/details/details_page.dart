@@ -31,11 +31,13 @@ class DetailsPage extends StatelessWidget {
         children: [
           Center(
             child: SizedBox(
-          
               height: 401,
               child: Stack(
                 children: [
-                  buildCategoryImage(item.item_image),
+                  Hero(
+                    tag: "category_image_${item.item_id}",
+                    child: buildCategoryImage(item.item_image, item.item_id),
+                  ),
                   Positioned(
                     top: 50,
                     left: 20,

@@ -9,11 +9,15 @@ import 'package:ali_store/ui/auth/login/widget/textforms.dart';
 import 'package:ali_store/ui/auth/signup/logic/cubit/sign_up_cubit.dart';
 import 'package:ali_store/ui/auth/signup/logic/cubit/sign_up_state.dart';
 import 'package:ali_store/ui/auth/signup/widget/background_signup.dart';
+import 'package:ali_store/ui/auth/signup/widget/have_account_text.dart';
+import 'package:ali_store/ui/auth/signup/widget/onpassword_changed.dart';
+import 'package:ali_store/ui/auth/signup/widget/sign_up_button.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ali_store/core/di/dependency_injec.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -55,6 +59,11 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    final bool hasMinLength = _passwordController.text.length >= 6;
+    final bool hasUppercase = _passwordController.text.contains(RegExp(r'[A-Z]'));
+    final bool hasLowercase = _passwordController.text.contains(RegExp(r'[a-z]'));
+    final bool hasNumber = _passwordController.text.contains(RegExp(r'[0-9]'));
+    final bool hasSpecialChar = _passwordController.text.contains(RegExp(r'[!@#\$&*~]'));
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
@@ -130,25 +139,25 @@ class _SignUpState extends State<SignUp> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 233),
+                              SizedBox(height: 233.h),
                               Container(
-                                margin: EdgeInsets.only(left: 24),
+                                margin: EdgeInsets.only(left: 24.w),
                                 child: Text(
                                   "signUp.Sign Up".tr(),
                                   style: TextStyles.font38MediumExtraDark,
                                 ).tr(),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 24, right: 24),
-                                width: 74,
-                                height: 4,
+                                margin: EdgeInsets.only(left: 24.w, right: 24.w),
+                                width: 74.w,
+                                height: 4.h,
                                 color: AppColors.primaryLoginColor,
                               ),
-                              SizedBox(height: 45),
+                              SizedBox(height: 45.h),
 
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                height: 62,
+                              Container(//email
+                                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                height: 62.h,
                                 child: Textforms(
                                   controller: _emailController,
                                   validator: (value) {
@@ -160,10 +169,10 @@ class _SignUpState extends State<SignUp> {
                                   imageIcon: "asset/svgs/mail_icon.svg",
                                 ),
                               ),
-                              SizedBox(height: 12),
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                height: 62,
+                              SizedBox(height: 12.h),
+                              Container(//phone
+                                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                height: 62.h,
                                 child: Textforms(
                                   controller: _phoneController,
                                   validator: (value) {
@@ -175,11 +184,15 @@ class _SignUpState extends State<SignUp> {
                                   imageIcon: "asset/svgs/phone_icon.svg",
                                 ),
                               ),
-                              SizedBox(height: 12),
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                height: 62,
+                              SizedBox(height: 12.h),
+                              Container(//password
+                              
+                                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                height: 62.h,
                                 child: Textforms(
+                                  onChanged: (value) {
+                                    setState(() {});
+                                  },
                                   onTapIcon: () {
                                     togglePasswordVisibility();
                                   },
@@ -198,11 +211,12 @@ class _SignUpState extends State<SignUp> {
                                   imageIcon: "asset/svgs/password.svg",
                                 ),
                               ),
-                              SizedBox(height: 12),
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 24),
-                                height: 62,
+                              SizedBox(height: 12.h),
+                              Container(//conferm password
+                                margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                height: 62.h,
                                 child: Textforms(
+                                
                                   onTapIcon: () {
                                     togglePasswordVisibility();
                                   },
@@ -221,19 +235,17 @@ class _SignUpState extends State<SignUp> {
                                   imageIcon: "asset/svgs/password.svg",
                                 ),
                               ),
-                              SizedBox(height: 100),
-                              Center(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        AppColors.primaryLoginColor,
-                                    foregroundColor: AppColors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    minimumSize: Size(343, 49),
-                                  ),
-                                  onPressed: () {
+                              SizedBox(height: 20.h),
+                              OnpasswordChanged(
+                                hasMinLength: hasMinLength,
+                                hasUppercase: hasUppercase,
+                                hasLowercase: hasLowercase,
+                                hasNumber: hasNumber,
+                                hasSpecialChar: hasSpecialChar,
+                              ),
+                              SizedBox(height: 20.h),
+                              SignUpButton(
+                                onPressed: () {
                                     if (context
                                         .read<SignUpCubit>()
                                         .formKey
@@ -249,9 +261,10 @@ class _SignUpState extends State<SignUp> {
                                           );
                                     }
                                   },
-                                  child: Text("signUp.Sign Up").tr(),
-                                ),
                               ),
+                              SizedBox(height: 10.h),
+                              HaveAccountText(),
+                              SizedBox(height: 10.h),
                             ],
                           ),
                         ),

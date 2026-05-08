@@ -1,0 +1,85 @@
+{
+  "hello": "مرحبا",
+  "Sign Up": "إنشاء حساب",
+  "Choose Language": "اختر اللغة",
+  "English": "الانجليزية",
+  "Arabic": "العربية",
+  "Continue": "متابعة",
+  "validate": {
+    "InputLength": "القيمة يجب أن تكون بين {min} و {max} حرف",
+    "Invalid email": "البريد الالكتروني غير صحيح",
+    "Invalid password": "كلمة المرور غير صحيحة",
+    "Invalid phone": "رقم الهاتف غير صحيح"
+  },
+  "login": {
+    "Sign in": "تسجيل الدخول",
+    "Email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "Login": "تسجيل الدخول",
+    "Remember me": " تذكرني ",
+    "Forgot password?": "نسيت كلمه المرور؟",
+    "Already have an account?": "هل لديك حساب؟"
+  },
+  "signUp": {
+    "Sign Up": "إنشاء حساب",
+    "Phone": "رقم الهاتف",
+    "Email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "didnt have account?": "ليس لديك حساب؟",
+    "onPasswordChanged": {
+      "At least 8 characters": "  على الأقل 8 أحرف  ",
+      "At least one uppercase letter": "  على الأقل حرف كبير  ",
+      "At least one lowercase letter": "  على الأقل حرف صغير  ",
+      "At least one number": "  على الأقل رقم  ",
+      "At least one special character": "  على الأقل حرف خاص  "
+    }
+  },
+  "forgetPassword": {
+    "Forget Password": "نسيت كلمة المرور",
+    "Enter Your Email": "أدخل بريدك الإلكتروني",
+    "Reset Password": "لإعادة تعيين كلمة المرور،\n يرجى إدخال بريدك الإلكتروني.",
+    "Email not found": "البريد الإلكتروني غير موجود"
+  },
+  "checkCode": {
+    "Check Your Email": "تحقق من بريدك الإلكتروني",
+    "Verify incorrect": "رمز التحقق غير صحيح",
+    "wrong code": "رمز خاطئ",
+    "Code Sent": "لقد أرسلنا إليك بريدًا إلكترونيًا يحتوي على رمز لإعادة تعيين كلمة المرور"
+  },
+  "resetPassword": {
+    "Reset Password": "إعادة تعيين كلمة المرور",
+    "Enter Your Password": "أدخل كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور الجديدة"
+  },
+  "home": {
+    "hello": "مرحبا",
+    "featured": "مميز",
+    "see all": "عرض الكل",
+    "most popular": "الأكثر شعبية",
+    "Search": "بحث",
+    "cardview": {
+      "Get Winter Discount": "خصم شتوي",
+      "20% OFF": "20% خصم",
+      "for children": "للأطفال",
+      "Discount for electronics": "خصم للإلكترونيات",
+      "30% OFF": "30% خصم",
+      "for electronics": "للإلكترونيات",
+      "Fast Delevery Food": "توصيل سريع للطعام",
+      "Free shipping": "شحن مجاني",
+      "Delivery": "توصيل"
+    }
+  },
+  "items": {
+    "Products": "المنتجات",
+    "Error": "خطأ",
+    "No items found in this category": "لا توجد منتجات في هذه الفئة",
+    "NO Internet Connection": "لا يوجد اتصال بالإنترنت",
+    "Description": "الوصف",
+    "Buy Now": "اشترِ الآن",
+    "Start searching...": "ابدأ البحث...",
+    "No items found": "لا توجد منتجات",
+    "Results for:": "نتائج البحث عن: {}",
+    "items": "منتجات"
+  }
+}

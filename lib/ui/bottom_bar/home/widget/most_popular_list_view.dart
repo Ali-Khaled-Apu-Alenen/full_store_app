@@ -10,6 +10,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MostPopularListView extends StatefulWidget {
   const MostPopularListView({super.key});
@@ -52,9 +53,10 @@ class _MostPopularListViewState extends State<MostPopularListView> {
           getItemsSuccess: (ItemsResponseData data) {
             final categories = data.data;
             return Container(
-              margin: EdgeInsets.only(left: 18),
-              width: 410,
-              height: 142,
+            
+              margin: EdgeInsets.only(left: 18.w),
+              width: 410.w,
+              height: 142.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
@@ -69,24 +71,38 @@ class _MostPopularListViewState extends State<MostPopularListView> {
                       );
                     },
                     child: Container(
-                      margin: EdgeInsets.only(right: 16),
+                        decoration: BoxDecoration(
+                // border: Border.all(color: Colors.grey, width: 1.w,),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withValues(alpha: 0.2),
+                    blurRadius: 10,
+                    offset: Offset(0, 5),
+                  ),
+                ],
+              ),
+                      margin: EdgeInsets.only(right: 16.w),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 99,
-                            width: 126,
+                            height: 99.h,
+                            width: 126.w,
                             child: Stack(
                               children: [
-                                buildCategoryImage(
-                                  categories[index].item_image,
+                                Hero(
+                                  tag: "category_image_${categories[index].item_id}",
+                                  child: buildCategoryImage(
+                                    categories[index].item_image,
+                                    categories[index].item_id,
+                                  ),
                                 ),
                                 Align(
                                   alignment: Alignment.topRight,
                                   child: Container(
-                                    width: 24,
-                                    height: 24,
-                                    margin: EdgeInsets.only(top: 8, right: 8),
+                                    width: 24.w,
+                                    height: 24.h,
+                                    margin: EdgeInsets.only(top: 8.h, right: 8.w),
                                     child: BlocBuilder<HomeBloc, HomeState>(
                                       builder: (context, state) {
                                         return InkWell(
@@ -121,7 +137,7 @@ class _MostPopularListViewState extends State<MostPopularListView> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 2),
+                          SizedBox(height: 2.h),
                           Text(
                             isArab
                                 ? categories[index].item_name_ar

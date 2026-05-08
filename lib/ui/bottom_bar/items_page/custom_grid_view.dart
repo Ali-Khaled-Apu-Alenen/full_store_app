@@ -4,12 +4,14 @@ import 'package:ali_store/core/styles/font_weights.dart';
 import 'package:ali_store/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomGridView extends StatelessWidget {
   final String itemImage;
   final String itemName;
   final String itemPrice;
   final VoidCallback onPreased;
+  final int itemId;
 
   const CustomGridView({
     super.key,
@@ -17,6 +19,7 @@ class CustomGridView extends StatelessWidget {
     required this.itemName,
     required this.itemPrice,
     required this.onPreased, 
+    required this.itemId,
   
   });
 
@@ -29,8 +32,8 @@ class CustomGridView extends StatelessWidget {
         InkWell(
           onTap: onPreased,
           child: Container(
-            height: 134,
-            width: 155,
+            height: 134.h,
+            width: 155.w,
             
             decoration: BoxDecoration(
               
@@ -39,13 +42,16 @@ class CustomGridView extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                buildCategoryImage(itemImage),
+                Hero(
+                  tag: "category_image_$itemId",
+                  child: buildCategoryImage(itemImage,itemId),
+                ),
                 Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    width: 24,
-                    height: 24,
-                    margin: const EdgeInsets.only(top: 10, right: 8),
+                    width: 24.w,
+                    height: 24.h,
+                    margin: EdgeInsets.only(top: 10.h, right: 8.w),
                     child: Image.asset("asset/images/favorit_filled.png"),
                   ),
                 ),
@@ -53,7 +59,7 @@ class CustomGridView extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 2),
+        SizedBox(height: 2.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -75,7 +81,7 @@ class CustomGridView extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(width: 40),
+            SizedBox(width: 40.w),
             SvgPicture.asset("asset/svgs/add.svg"),
           ],
         ),
