@@ -14,16 +14,19 @@ class Middleware {
   
 
   static Future<bool> isLoggedIn() async {
-
-    return await SharedPreferencesHelper.getBool(SharedPrefKeys.isLoggedInKey) ?? false;
+      final int? userData = await SharedPreferencesHelper.getInt(SharedPrefKeys.userDataKey);
+      final bool? isLoggedIn = await SharedPreferencesHelper.getBool(SharedPrefKeys.isLoggedInKey);
+       return isLoggedIn==true&&userData!=null;
+    
 
 
 
   }
 
   static Future<bool> setSaveLoggin() async {
-
+      
     return await SharedPreferencesHelper.getBool(SharedPrefKeys.rememberMeKey) ?? false;
+
 
   }
   static Future<String?> isSetLanguage() async {

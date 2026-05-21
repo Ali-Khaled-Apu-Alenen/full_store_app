@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 
-  Widget buildCategoryImage(String imageFileName) {
+  Widget buildCategoryImage(String imageFileName,int itemId) {
+
     print("imageFileName: $imageFileName");
     final isSvg = imageFileName.toLowerCase().endsWith('.svg');
     final isJpg = imageFileName.toLowerCase().endsWith('.jpg');

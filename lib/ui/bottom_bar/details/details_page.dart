@@ -7,9 +7,11 @@ import 'package:ali_store/ui/bottom_bar/bottom_bar.dart';
 import 'package:ali_store/ui/bottom_bar/details/widgets/bottons_bar.dart';
 import 'package:ali_store/ui/bottom_bar/details/widgets/icon_custom_details.dart';
 import 'package:ali_store/ui/bottom_bar/details/widgets/item_name_and_price.dart';
-import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
+import 'package:ali_store/data/model/items_response_data.dart';
+import 'package:ali_store/ui/bottom_bar/details/widgets/size_pick.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -31,14 +33,16 @@ class DetailsPage extends StatelessWidget {
         children: [
           Center(
             child: SizedBox(
-          
-              height: 401,
+              height: 401.h,
               child: Stack(
                 children: [
-                  buildCategoryImage(item.item_image),
+                  Hero(
+                    tag: "category_image_${item.item_id}",
+                    child: buildCategoryImage(item.item_image, item.item_id),
+                  ),
                   Positioned(
-                    top: 50,
-                    left: 20,
+                    top: 50.h,
+                    left: 20.w,
                     child: IconCustomDetails(
                       icon: Icons.arrow_back,
                       onPressed: () {
@@ -47,28 +51,31 @@ class DetailsPage extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 50,
-                    right: 5,
+                    top: 50.h,
+                    right: 5.w,
                     child: IconCustomDetails(icon: Icons.favorite),
                   ),
                 ],
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           ItemNameAndPrice(
             name: isArab ? item.item_name_ar : item.item_name,
             price: item.item_price.toString(),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Text("items.Description".tr(), style: TextStyles.font16SimiBold),
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Text(
+              "items.Description".tr(),
+              style: TextStyles.font16SimiBold,
+            ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            height: 150,
+            margin: EdgeInsets.symmetric(horizontal: 20.h),
+            height: 100.h,
             child: Text(
               isArab ? item.item_description_ar : item.item_description,
               style: TextStyle(
@@ -78,7 +85,9 @@ class DetailsPage extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
+          SizedBox(height: 20.h),
+          SizePick(sizes: ["S", "M", "L", "XL"]),
+          SizedBox(height: 20.h),
           ButtonsBar(
             buyNowPressed: () {
               // TODO: Implement buy now functionality
@@ -87,7 +96,7 @@ class DetailsPage extends StatelessWidget {
               // TODO: Implement add to cart functionality
             },
           ),
-          SizedBox(height: 50),
+          // SizedBox(height: 50.h),
         ],
       ),
     );

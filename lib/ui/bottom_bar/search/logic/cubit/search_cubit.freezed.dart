@@ -125,12 +125,12 @@ return getItemsError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  gettingItems,TResult Function( List<Item> items)?  getItemsSuccess,TResult Function()?  getItemsError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  gettingItems,TResult Function( List<Item> items,  int favoriteRevision)?  getItemsSuccess,TResult Function()?  getItemsError,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _GettingItems() when gettingItems != null:
 return gettingItems();case _GetItemsSuccess() when getItemsSuccess != null:
-return getItemsSuccess(_that.items);case _GetItemsError() when getItemsError != null:
+return getItemsSuccess(_that.items,_that.favoriteRevision);case _GetItemsError() when getItemsError != null:
 return getItemsError();case _:
   return orElse();
 
@@ -149,12 +149,12 @@ return getItemsError();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  gettingItems,required TResult Function( List<Item> items)  getItemsSuccess,required TResult Function()  getItemsError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  gettingItems,required TResult Function( List<Item> items,  int favoriteRevision)  getItemsSuccess,required TResult Function()  getItemsError,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _GettingItems():
 return gettingItems();case _GetItemsSuccess():
-return getItemsSuccess(_that.items);case _GetItemsError():
+return getItemsSuccess(_that.items,_that.favoriteRevision);case _GetItemsError():
 return getItemsError();}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -169,12 +169,12 @@ return getItemsError();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  gettingItems,TResult? Function( List<Item> items)?  getItemsSuccess,TResult? Function()?  getItemsError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  gettingItems,TResult? Function( List<Item> items,  int favoriteRevision)?  getItemsSuccess,TResult? Function()?  getItemsError,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _GettingItems() when gettingItems != null:
 return gettingItems();case _GetItemsSuccess() when getItemsSuccess != null:
-return getItemsSuccess(_that.items);case _GetItemsError() when getItemsError != null:
+return getItemsSuccess(_that.items,_that.favoriteRevision);case _GetItemsError() when getItemsError != null:
 return getItemsError();case _:
   return null;
 
@@ -251,7 +251,7 @@ String toString() {
 
 
 class _GetItemsSuccess implements SearchState {
-  const _GetItemsSuccess(final  List<Item> items): _items = items;
+  const _GetItemsSuccess({required final  List<Item> items, this.favoriteRevision = 0}): _items = items;
   
 
  final  List<Item> _items;
@@ -261,6 +261,7 @@ class _GetItemsSuccess implements SearchState {
   return EqualUnmodifiableListView(_items);
 }
 
+@JsonKey() final  int favoriteRevision;
 
 /// Create a copy of SearchState
 /// with the given fields replaced by the non-null parameter values.
@@ -272,16 +273,16 @@ _$GetItemsSuccessCopyWith<_GetItemsSuccess> get copyWith => __$GetItemsSuccessCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetItemsSuccess&&const DeepCollectionEquality().equals(other._items, _items));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetItemsSuccess&&const DeepCollectionEquality().equals(other._items, _items)&&(identical(other.favoriteRevision, favoriteRevision) || other.favoriteRevision == favoriteRevision));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_items));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_items),favoriteRevision);
 
 @override
 String toString() {
-  return 'SearchState.getItemsSuccess(items: $items)';
+  return 'SearchState.getItemsSuccess(items: $items, favoriteRevision: $favoriteRevision)';
 }
 
 
@@ -292,7 +293,7 @@ abstract mixin class _$GetItemsSuccessCopyWith<$Res> implements $SearchStateCopy
   factory _$GetItemsSuccessCopyWith(_GetItemsSuccess value, $Res Function(_GetItemsSuccess) _then) = __$GetItemsSuccessCopyWithImpl;
 @useResult
 $Res call({
- List<Item> items
+ List<Item> items, int favoriteRevision
 });
 
 
@@ -309,10 +310,11 @@ class __$GetItemsSuccessCopyWithImpl<$Res>
 
 /// Create a copy of SearchState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? items = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? items = null,Object? favoriteRevision = null,}) {
   return _then(_GetItemsSuccess(
-null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
-as List<Item>,
+items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
+as List<Item>,favoriteRevision: null == favoriteRevision ? _self.favoriteRevision : favoriteRevision // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 

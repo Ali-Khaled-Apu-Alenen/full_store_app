@@ -3,6 +3,7 @@ import 'package:ali_store/ui/onboardign/logic/onboarding_cubit_cubit.dart';
 import 'package:ali_store/ui/onboardign/widget/shape_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PageViewBuilderOnboarding extends StatefulWidget {
   const PageViewBuilderOnboarding({Key? key}) : super(key: key);
@@ -32,11 +33,11 @@ class _PageViewBuilderOnboardingState extends State<PageViewBuilderOnboarding> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ShapeWidget(index: index),
-                  Center(child: Image.asset(onboardingList[index].image!,width: 280,height: 345,)),
+                  Center(child: Image.asset(onboardingList[index].image!,width: 280.w,height: 345.h,)),
                   // SizedBox(height: 20),
-                  Text(onboardingList[index].title!),
-                  Text(onboardingList[index].description!),
-                  SizedBox(height: 20),
+                  // Text(onboardingList[index].title!),
+                  // Text(onboardingList[index].description!),
+                  SizedBox(height: 20.h),
                 ],
               );
             },

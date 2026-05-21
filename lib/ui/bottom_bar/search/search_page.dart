@@ -1,35 +1,45 @@
 import 'package:ali_store/core/constatnt/languages.dart';
 import 'package:ali_store/core/constatnt/routes_name.dart';
 import 'package:ali_store/core/styles/text_styles.dart';
-import 'package:ali_store/ui/bottom_bar/details/details_page.dart';
 import 'package:ali_store/ui/bottom_bar/home/widget/search_bar.dart';
-import 'package:ali_store/ui/bottom_bar/items_page/custom_grid_view.dart';
+import 'package:ali_store/ui/bottom_bar/items_page/item_favorites.dart';
+import 'package:ali_store/ui/bottom_bar/items_page/items_grid_view.dart';
 import 'package:ali_store/ui/bottom_bar/search/logic/cubit/search_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
-  String searchQuery = "";
+  String searchQuery = '';
+  late final TextEditingController _searchController;
 
   @override
   void initState() {
     super.initState();
+    _searchController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<SearchCubit>().emitSearchState();
+      context.read<SearchCubit>().loadItems();
     });
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    bool isArabic = context.locale.languageCode == Languages.arabic;
+    final isArabic = context.locale.languageCode == Languages.arabic;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -49,12 +59,12 @@ class _SearchPageState extends State<SearchPage> {
                       icon: const Icon(Icons.arrow_back),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Expanded(
                     child: SearchBarCostum(
-                      searchController: TextEditingController(),
+                      searchController: _searchController,
                       onChanged: (value) {
-                        searchQuery = value;
+                        setState(() => searchQuery = value);
                         context.read<SearchCubit>().searchItems(value);
                       },
                     ),
@@ -62,91 +72,69 @@ class _SearchPageState extends State<SearchPage> {
                 ],
               ),
             ),
-            BlocBuilder<SearchCubit, SearchState>(
-              builder: (context, state) {
-                return state.when(
-                  initial: () =>
-                       Center(child: Text('Start searching...'.tr())),
-                  gettingItems: () =>
-                      const Center(child: CircularProgressIndicator()),
-                  getItemsSuccess: (items) {
-                    if (items.isEmpty) {
-                      return Center(child: Text('No items found'.tr()));
-                    }
-                    return Expanded(
-                      child: Column(
+            Expanded(
+              child: BlocBuilder<SearchCubit, SearchState>(
+                builder: (context, state) {
+                  return state.when(
+                    initial: () =>
+                        Center(child: Text('Start searching...'.tr())),
+                    gettingItems: () =>
+                        const Center(child: CircularProgressIndicator()),
+                    getItemsSuccess: (items, favoriteRevision) {
+                      if (items.isEmpty) {
+                        return Center(child: Text('No items found'.tr()));
+                      }
+
+                      final cubit = context.read<SearchCubit>();
+
+                      return Column(
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Row(
                               children: [
-                                searchQuery.isNotEmpty
-                                    ? Text(
-                                        "items.Results for:".tr(
-                                          args: [searchQuery],
-                                        ),
-                                      )
-                                    : const Text(""),
+                                if (searchQuery.isNotEmpty)
+                                  Text(
+                                    'items.Results for:'.tr(
+                                      args: [searchQuery],
+                                    ),
+                                  ),
                                 const Spacer(),
                                 Text(
-                                  " ${items.length} ${"items.items".tr()}",
+                                  ' ${items.length} ${'items.items'.tr()}',
                                   style: TextStyles.font16Medium,
                                 ),
                               ],
                             ),
                           ),
                           Expanded(
-                            child: CustomScrollView(
-                              slivers: [
-                                SliverPadding(
-                                  padding: const EdgeInsets.all(10),
-                                  sliver: SliverGrid(
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          childAspectRatio: 0.7,
-                                          // crossAxisSpacing: 10,
-                                          // mainAxisSpacing: 10,
-                                        ),
-                                    delegate: SliverChildBuilderDelegate((
-                                      context,
-                                      index,
-                                    ) {
-                                      return CustomGridView(
-                                        onPreased: () {
-                                          Navigator.of(
-                                            context,
-                                            rootNavigator: true,
-                                          ).push(
-                                            MaterialPageRoute(
-                                              builder: (context) => DetailsPage(
-                                                item: items[index],
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        itemImage: items[index].item_image,
-                                        itemName: isArabic 
-                                            ? items[index].item_name_ar 
-                                            : items[index].item_name,
-                                        itemPrice: items[index].item_price
-                                            .toString(),
-                                      );
-                                    },
-                                    childCount: items.length,
-                                  ),
-                                ),
-                            )],
+                            child: ItemsGridView(
+                              items: items,
+                              isArabic: isArabic,
+                              favorites: ItemFavorites.fromSearchCubit(cubit),
+                              favoriteRevision: favoriteRevision,
                             ),
                           ),
                         ],
+                      );
+                    },
+                    getItemsError: () => Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Error loading items'.tr()),
+                          const SizedBox(height: 12),
+                          ElevatedButton(
+                            onPressed: () =>
+                                context.read<SearchCubit>().loadItems(),
+                            child: Text('Retry'.tr()),
+                          ),
+                        ],
                       ),
-                    );
-                  },
-                  getItemsError: () =>
-                      const Center(child: Text('Error loading items')),
-                );
-              },
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

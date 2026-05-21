@@ -1,0 +1,85 @@
+{
+  "hello": "hello",
+  "Sign Up": "Sign Up",
+  "Choose Language": "Choose Language",
+  "English": "English",
+  "Arabic": "Arabic",
+  "Continue": "Continue",
+  "validate": {
+    "Invalid phone": "Invalid phone",
+    "Invalid email": "Invalid email",
+    "Invalid password": "Invalid password",
+    "InputLength": "Input must be between {min} and {max} characters"
+  },
+  "login": {
+    "Sign in": "Sign in",
+    "Email": "Email",
+    "password": "password",
+    "Login": "Login",
+    "Remember me": "Remember me",
+    "Forgot password?": "Forget password?",
+    "Already have an account?": "Already have an account?"
+  },
+  "signUp": {
+    "Sign Up": "Sign Up",
+    "Phone": "Phone",
+    "Email": "Email",
+    "password": "password",
+    "confirmPassword": "confirmPassword",
+    "didnt have account?": "Didn't have account?",
+    "onPasswordChanged": {
+      "At least 8 characters": "  At least 8 characters  ",
+      "At least one uppercase letter": "  At least one uppercase letter  ",
+      "At least one lowercase letter": "  At least one lowercase letter  ",
+      "At least one number": "  At least one number  ",
+      "At least one special character": "  At least one special character  "
+    }
+  },
+  "forgetPassword": {
+    "Forget Password": "Forget Password",
+    "Enter Your Email": "Enter Your Email",
+    "Reset Password": "To reset your password,\n please enter your email address.",
+    "Email not found": "Email not found"
+  },
+  "checkCode": {
+    "Check Your Email": "Check Your Email",
+    "Verify incorrect": "Verify code is incorrect",
+    "wrong code": "Wrong code",
+    "Code Sent": "We've sent you an email with a code to reset your password"
+  },
+  "resetPassword": {
+    "Reset Password": "Reset Password",
+    "Enter Your Password": "Enter Your New Password",
+    "confirmPassword": "confirm New Password"
+  },
+  "home": {
+    "hello": "hello",
+    "featured": "Featured",
+    "see all": "See all",
+    "most popular": "Most Popular",
+    "Search": "Search",
+    "cardview": {
+      "Get Winter Discount": "Get Winter Discount",
+      "20% OFF": "20% OFF",
+      "for children": "for children",
+      "Discount for electronics": "Discount for electronics",
+      "30% OFF": "30% OFF",
+      "for electronics": "for electronics",
+      "Fast Delevery Food": "Fast Delevery Food",
+      "Free shipping": "Free shipping",
+      "Delivery": "Delivery"
+    }
+  },
+  "items": {
+    "Products": "Products",
+    "Error": "Error",
+    "No items found in this category": "No items found in this category",
+    "NO Internet Connection": "NO Internet Connection",
+    "Description": "Description",
+    "Start searching...": "Start searching...",
+    "No items found": "No items found",
+    "Results for:": "Results for: {}",
+    "Buy Now": "Buy Now",
+    "items": "items"
+  }
+}

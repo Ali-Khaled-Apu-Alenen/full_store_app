@@ -30,6 +30,7 @@ Item _$ItemFromJson(Map<String, dynamic> json) => Item(
   item_discount: (json['item_discount'] as num).toInt(),
   item_date: json['item_date'] as String,
   items_categorie: (json['items_categorie'] as num).toInt(),
+  favorite: (json['favorite'] as num).toInt(),
 );
 
 Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
@@ -45,4 +46,5 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
   'item_discount': instance.item_discount,
   'item_date': instance.item_date,
   'items_categorie': instance.items_categorie,
+  'favorite': instance.favorite,
 };

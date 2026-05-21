@@ -1,4 +1,4 @@
-class RoutesName{
+class RoutesName {
   static const String onboarding = "/onboarding";
   static const String home = "/home";
   static const String login = "/login";
@@ -12,4 +12,6 @@ class RoutesName{
   static const String search = "/search";
   static const String productDetails = "/product_details";
   static const String verifyCodeTestDetails = "/verify_code_test_details";
+  static const String profile = "/profile";
+  static const String setting = "/setting";
 }

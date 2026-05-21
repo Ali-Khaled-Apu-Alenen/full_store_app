@@ -2,6 +2,7 @@ import 'package:ali_store/ui/onboardign/widget/button_onboarding.dart';
 import 'package:ali_store/ui/onboardign/widget/dots_generation.dart';
 import 'package:ali_store/ui/onboardign/widget/page_view_builder_onboarding.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class Onboarding extends StatelessWidget {
@@ -15,9 +16,9 @@ class Onboarding extends StatelessWidget {
           children: [
           PageViewBuilderOnboarding(),
           DotsGeneration(),
-          SizedBox(height: 20,),
+          SizedBox(height: 10.h),
           ButtonOnboarding(),
-        SizedBox(height: 50,),
+        SizedBox(height: 30.h),
           ],
         ),
       );

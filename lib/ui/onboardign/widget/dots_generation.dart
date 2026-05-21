@@ -3,6 +3,7 @@ import 'package:ali_store/data/onboardinglist/onboarding_static.dart';
 import 'package:ali_store/ui/onboardign/logic/onboarding_cubit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DotsGeneration extends StatefulWidget {
   DotsGeneration({Key? key}) : super(key: key);
@@ -25,13 +26,13 @@ class _DotsGenerationState extends State<DotsGeneration> {
             ...List.generate(onboardingList.length, (index) {
               // print(cubit.index);
               return AnimatedContainer(
-                width: index == currentIndex ? 20 : 6,
-                height: 6,
-                margin: const EdgeInsets.symmetric(horizontal: 2),
+                width: index == currentIndex ? 20.w : 6.w,
+                height: 6.h,
+                margin: EdgeInsets.symmetric(horizontal: 2.w),
                 decoration: BoxDecoration(
                   color: index == currentIndex
                       ? AppColors.primaryColor
-                      : AppColors.primaryColor.withOpacity(0.3),
+                      : AppColors.primaryColor.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(3),
                 ),
                 duration: const Duration(milliseconds: 300),

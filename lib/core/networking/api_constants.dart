@@ -7,4 +7,5 @@ class ApiConstants {
   static const String login = "auth/login.php";
   static const String categories = "categories/categories.php";
   static const String items = "categories/items.php";
+  static const String setFavorite = "categories/set_favorite.php";
 }

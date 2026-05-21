@@ -20,6 +20,7 @@ class LoginCubit extends Cubit<LoginState<dynamic>> {
 
   bool obscurePassword = false;
   bool rememberMe = false;
+  int? userData;
   checkValidation() {
     if (formKey.currentState!.validate()) {
       print("valid");
@@ -34,10 +35,10 @@ class LoginCubit extends Cubit<LoginState<dynamic>> {
       LoginRequestData(email: email, password: password),
     );
     response.when(
-      success: (data) {
-        saveLoginData();
+      success: (data) async {
+        userData = data.userData?.usersId;
+        await saveLoginData();
         emit(LoginState.success(data));
-      
       },
       failure: (error) {
         emit(LoginState.failure(error.message));
@@ -67,6 +68,7 @@ class LoginCubit extends Cubit<LoginState<dynamic>> {
       rememberMe,
     );
     await SharedPreferencesHelper.setData(SharedPrefKeys.isLoggedInKey, true);
+    await SharedPreferencesHelper.setData(SharedPrefKeys.userDataKey, userData);
   }
 
   @override

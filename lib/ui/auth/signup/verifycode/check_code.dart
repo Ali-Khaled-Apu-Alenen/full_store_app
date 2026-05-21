@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pinput/pinput.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckCode extends StatefulWidget {
   final String email;
@@ -60,11 +61,11 @@ class CheckCodeState extends State<CheckCode> {
               child: LongBackground(),
             ),
             Positioned(
-              top: 20,
+              top: 20.h,
               left: 0,
               right: 0,
               child: Container(
-                height: 60,
+                height: 60.h,
                 color: Colors.transparent,
                 child: Row(
                   children: [
@@ -101,28 +102,28 @@ class CheckCodeState extends State<CheckCode> {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 525),
+                            SizedBox(height: 525.h),
                             Container(
-                              margin: EdgeInsets.only(left: 24),
+                              margin: EdgeInsets.only(left: 24.w),
                               child: Text(
                                 "checkCode.Check Your Email",
                                 style: TextStyles.font24MediumExtraDark,
                               ).tr(),
                             ),
                             Container(
-                              margin: EdgeInsets.only(left: 24, right: 24),
-                              width: 100,
-                              height: 4,
+                              margin: EdgeInsets.only(left: 24.w, right: 24.w),
+                              width: 100.w,
+                              height: 4.h,
                               color: AppColors.primaryLoginColor,
                             ),
-                            SizedBox(height: 22),
+                            SizedBox(height: 22.h),
                             Center(
                               child: Text(
                                 "checkCode.Code Sent",
                                 textAlign: TextAlign.center,
                               ).tr(),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 20.h),
                             Center(
                               child: BlocBuilder<VerifyCodeCubit, VerifyCodeState>(
                                 builder: (context, state) {
@@ -130,8 +131,8 @@ class CheckCodeState extends State<CheckCode> {
                                     length: 5,
                                     // controller: context.read<PasswordAuthBloc>().codeCheckController,
                                     focusedPinTheme: PinTheme(
-                                      height: 50,
-                                      width: 50,
+                                      height: 50.h,
+                                      width: 50.w,
                                       decoration: BoxDecoration(
                                         color: AppColors.primaryLoginColor,
                                         borderRadius: BorderRadius.all(
@@ -152,9 +153,9 @@ class CheckCodeState extends State<CheckCode> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 22),
+                            SizedBox(height: 22.h),
 
-                            SizedBox(height: 50),
+                            SizedBox(height: 50.h),
                             InkWell(
                               onTap: () {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -169,7 +170,7 @@ class CheckCodeState extends State<CheckCode> {
                                         SvgPicture.asset(
                                           "asset/svgs/Group_arrow.svg",
                                         ),
-                                        SizedBox(width: 8),
+                                        SizedBox(width: 8.w),
                                         Text("Continue").tr(),
                                       ],
                                     )
@@ -177,7 +178,7 @@ class CheckCodeState extends State<CheckCode> {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         Text("Continue").tr(),
-                                        SizedBox(width: 8),
+                                        SizedBox(width: 8.w),
                                         SvgPicture.asset(
                                           "asset/svgs/Group_arrow.svg",
                                         ),

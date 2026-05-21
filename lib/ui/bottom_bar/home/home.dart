@@ -12,6 +12,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -37,16 +38,16 @@ class _HomeState extends State<Home> {
             child: Column(
               children: [
                 AppBarNotificationIcon(),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 SearchBarCostum(searchController: TextEditingController()),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 CardViewHome(),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 HomeCardDots(),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 Row(
                   children: [
-                    SizedBox(width: 18),
+                    SizedBox(width: 18.w),
                     Text("home.featured".tr(), style: TextStyles.font16SimiBold),
                     Spacer(),
                     TextButton(
@@ -55,12 +56,12 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 FeaturedListView(),
-                SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Row(
                   children: [
-                    SizedBox(width: 18),
+                    SizedBox(width: 18.w),
                     Text("home.most popular".tr(), style: TextStyles.font16SimiBold),
                     Spacer(),
                     TextButton(
@@ -69,7 +70,7 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 MostPopularListView(),
               ],
             ),
