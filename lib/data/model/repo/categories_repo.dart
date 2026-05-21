@@ -1,12 +1,15 @@
 import 'dart:convert';
 
+import 'package:ali_store/core/constatnt/shared_pref_keys.dart';
 import 'package:ali_store/core/networking/api_error_model.dart';
 import 'package:ali_store/core/networking/api_result.dart';
 import 'package:ali_store/core/networking/api_services.dart';
+import 'package:ali_store/core/services/shared_preferences_helper.dart';
+import 'package:ali_store/data/model/items_request_data.dart';
 import 'package:dio/dio.dart';
 
-import 'package:ali_store/ui/bottom_bar/home/logic/model/categorie_response_data.dart';
-import 'package:ali_store/ui/bottom_bar/home/logic/model/items_response_data.dart';
+import 'package:ali_store/data/model/categorie_response_data.dart';
+import 'package:ali_store/data/model/items_response_data.dart';
 
 class CategoriesRepo {
   final ApiServices _apiServices;
@@ -101,10 +104,12 @@ class CategoriesRepo {
       );
     }
   }
-
   Future<ApiResult<ItemsResponseData>> getItems() async {
+    final userId = await SharedPreferencesHelper.getInt(
+      SharedPrefKeys.userDataKey,
+    );
     try {
-      final responseBody = await _apiServices.getItems();
+      final responseBody = await _apiServices.getItems(ItemsRequestData(userId: userId));
       print('Response data type: ${responseBody.runtimeType}');
 
       Map<String, dynamic> responseData;

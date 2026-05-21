@@ -34,6 +34,7 @@ class Item {
   final int item_discount;
   final String item_date;
   final int items_categorie;
+  final int favorite;
 
   Item({
     required this.item_id,
@@ -48,6 +49,7 @@ class Item {
     required this.item_discount,
     required this.item_date,
     required this.items_categorie,
+    required this.favorite,
   });
 
   factory Item.fromJson(Map<String, dynamic> json) {

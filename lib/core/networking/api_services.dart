@@ -1,5 +1,7 @@
 import 'package:ali_store/core/networking/api_constants.dart';
 import 'package:ali_store/core/networking/parse_error_logger.dart';
+import 'package:ali_store/data/model/items_request_data.dart';
+import 'package:ali_store/data/model/set_favorite_request.dart';
 import 'package:ali_store/ui/auth/login/logic/model/login_request_date.dart';
 import 'package:ali_store/ui/auth/signup/logic/model/sign_up_request_data.dart';
 import 'package:ali_store/ui/auth/signup/verifycode/model/verify_code_request_data.dart';
@@ -20,5 +22,7 @@ abstract class ApiServices {
     @FormUrlEncoded()
     Future<String> getCategories();
     @POST(ApiConstants.items)
-    Future<String> getItems();
+    Future<String> getItems(@Body() ItemsRequestData data);
+    @POST(ApiConstants.setFavorite)
+    Future<String> setFavorite(@Body() SetFavoriteRequest data);
 }

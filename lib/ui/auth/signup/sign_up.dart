@@ -64,217 +64,220 @@ class _SignUpState extends State<SignUp> {
     final bool hasLowercase = _passwordController.text.contains(RegExp(r'[a-z]'));
     final bool hasNumber = _passwordController.text.contains(RegExp(r'[0-9]'));
     final bool hasSpecialChar = _passwordController.text.contains(RegExp(r'[!@#\$&*~]'));
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Transform(
-              alignment: Alignment.center,
-              transform: context.locale.languageCode == 'ar'
-                  ? Matrix4.rotationY(pi) // flip horizontally
-                  : Matrix4.identity(),
-              child: BackgroundSignup(), // your wave/pink background
-            ),
-            BlocProvider(
-              create: (context) => getIt<SignUpCubit>(),
-              child: Builder(
-                builder: (context) {
-                  return BlocConsumer<SignUpCubit, SignUpState>(
-                    listenWhen: (previous, current) => previous != current,
-                    listener: (context, state) {
-                      state.when(
-                        initial: () {},
-                        loading: () {
-                          return Center(child: CircularProgressIndicator());
-                        },
-                        success: (data) {
-                          AwesomeDialog(
-                            dialogBackgroundColor: AppColors.primaryLoginColor,
-                            // btnOkText: 'OK',
-                            btnOk: TextButton(
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Transform(
+                alignment: Alignment.center,
+                transform: context.locale.languageCode == 'ar'
+                    ? Matrix4.rotationY(pi) // flip horizontally
+                    : Matrix4.identity(),
+                child: BackgroundSignup(), // your wave/pink background
+              ),
+              BlocProvider(
+                create: (context) => getIt<SignUpCubit>(),
+                child: Builder(
+                  builder: (context) {
+                    return BlocConsumer<SignUpCubit, SignUpState>(
+                      listenWhen: (previous, current) => previous != current,
+                      listener: (context, state) {
+                        state.when(
+                          initial: () {},
+                          loading: () {
+                            return Center(child: CircularProgressIndicator());
+                          },
+                          success: (data) {
+                            AwesomeDialog(
+                              dialogBackgroundColor: AppColors.primaryLoginColor,
+                              // btnOkText: 'OK',
+                              btnOk: TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  // Navigator.pushNamedAndRemoveUntil(
+                                  //   context,
+                                  //   RoutesName.login,
+                                  //   (route) => false,
+                                  // );
+                                },
+                              
+                                child: Text('OK'),
+                              ),
+      
+                              btnOkColor: AppColors.primaryColor,
+                              context: context,
+                              dialogType: DialogType.success,
+                              title: 'Success',
+                              desc: 'Account created successfully',
+                            ).show();
+                          },
+                          failure: (error) {
+                            AwesomeDialog(
+                              dialogBackgroundColor: AppColors.primaryLoginColor,
+                              // btnOkText: 'OK',
+                              btnOk: TextButton(
                                 onPressed: () {
                                   Navigator.pop(context);
-                                // Navigator.pushNamedAndRemoveUntil(
-                                //   context,
-                                //   RoutesName.login,
-                                //   (route) => false,
-                                // );
-                              },
-                            
-                              child: Text('OK'),
-                            ),
-
-                            btnOkColor: AppColors.primaryColor,
-                            context: context,
-                            dialogType: DialogType.success,
-                            title: 'Success',
-                            desc: 'Account created successfully',
-                          ).show();
-                        },
-                        failure: (error) {
-                          AwesomeDialog(
-                            dialogBackgroundColor: AppColors.primaryLoginColor,
-                            // btnOkText: 'OK',
-                            btnOk: TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text('OK'),
-                            ),
-                            context: context,
-                            dialogType: DialogType.error,
-                            title: 'Error',
-                            desc: UserErrorHandler.errorMessage(error),
-                          ).show();
-                        },
-                      );
-                    },
-                    builder: (context, state) {
-                      return state.maybeWhen(
-                        loading: () =>
-                            Center(child: CircularProgressIndicator()),
-                        orElse: () => Form(
-                          key: context.read<SignUpCubit>().formKey,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 233.h),
-                              Container(
-                                margin: EdgeInsets.only(left: 24.w),
-                                child: Text(
-                                  "signUp.Sign Up".tr(),
-                                  style: TextStyles.font38MediumExtraDark,
-                                ).tr(),
+                                },
+                                child: Text('OK'),
                               ),
-                              Container(
-                                margin: EdgeInsets.only(left: 24.w, right: 24.w),
-                                width: 74.w,
-                                height: 4.h,
-                                color: AppColors.primaryLoginColor,
-                              ),
-                              SizedBox(height: 45.h),
-
-                              Container(//email
-                                margin: EdgeInsets.symmetric(horizontal: 24.w),
-                                height: 62.h,
-                                child: Textforms(
-                                  controller: _emailController,
-                                  validator: (value) {
-                                    return validateInput(value, 5, 25, "email");
-                                  },
-                                  isPassword: false,
-                                  isOpscured: false,
-                                  lableText: ("signUp.Email").tr(),
-                                  imageIcon: "asset/svgs/mail_icon.svg",
+                              context: context,
+                              dialogType: DialogType.error,
+                              title: 'Error',
+                              desc: UserErrorHandler.errorMessage(error),
+                            ).show();
+                          },
+                        );
+                      },
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                          loading: () =>
+                              Center(child: CircularProgressIndicator()),
+                          orElse: () => Form(
+                            key: context.read<SignUpCubit>().formKey,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 233.h),
+                                Container(
+                                  margin: EdgeInsets.only(left: 24.w),
+                                  child: Text(
+                                    "signUp.Sign Up".tr(),
+                                    style: TextStyles.font38MediumExtraDark,
+                                  ).tr(),
                                 ),
-                              ),
-                              SizedBox(height: 12.h),
-                              Container(//phone
-                                margin: EdgeInsets.symmetric(horizontal: 24.w),
-                                height: 62.h,
-                                child: Textforms(
-                                  controller: _phoneController,
-                                  validator: (value) {
-                                    return validateInput(value, 5, 25, "phone");
-                                  },
-                                  isPassword: false,
-                                  isOpscured: false,
-                                  lableText: ("signUp.Phone").tr(),
-                                  imageIcon: "asset/svgs/phone_icon.svg",
+                                Container(
+                                  margin: EdgeInsets.only(left: 24.w, right: 24.w),
+                                  width: 74.w,
+                                  height: 4.h,
+                                  color: AppColors.primaryLoginColor,
                                 ),
-                              ),
-                              SizedBox(height: 12.h),
-                              Container(//password
-                              
-                                margin: EdgeInsets.symmetric(horizontal: 24.w),
-                                height: 62.h,
-                                child: Textforms(
-                                  onChanged: (value) {
-                                    setState(() {});
-                                  },
-                                  onTapIcon: () {
-                                    togglePasswordVisibility();
-                                  },
-                                  controller: _passwordController,
-                                  validator: (value) {
-                                    return validateInput(
-                                      value,
-                                      8,
-                                      25,
-                                      "password",
-                                    );
-                                  },
-                                  isPassword: true,
-                                  isOpscured: _isPasswordVisible,
-                                  lableText: ("signUp.password").tr(),
-                                  imageIcon: "asset/svgs/password.svg",
+                                SizedBox(height: 45.h),
+      
+                                Container(//email
+                                  margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                  height: 62.h,
+                                  child: Textforms(
+                                    controller: _emailController,
+                                    validator: (value) {
+                                      return validateInput(value, 5, 25, "email");
+                                    },
+                                    isPassword: false,
+                                    isOpscured: false,
+                                    lableText: ("signUp.Email").tr(),
+                                    imageIcon: "asset/svgs/mail_icon.svg",
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 12.h),
-                              Container(//conferm password
-                                margin: EdgeInsets.symmetric(horizontal: 24.w),
-                                height: 62.h,
-                                child: Textforms(
+                                SizedBox(height: 12.h),
+                                Container(//phone
+                                  margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                  height: 62.h,
+                                  child: Textforms(
+                                    controller: _phoneController,
+                                    validator: (value) {
+                                      return validateInput(value, 5, 25, "phone");
+                                    },
+                                    isPassword: false,
+                                    isOpscured: false,
+                                    lableText: ("signUp.Phone").tr(),
+                                    imageIcon: "asset/svgs/phone_icon.svg",
+                                  ),
+                                ),
+                                SizedBox(height: 12.h),
+                                Container(//password
                                 
-                                  onTapIcon: () {
-                                    togglePasswordVisibility();
-                                  },
-                                  controller: _confirmPasswordController,
-                                  validator: (value) {
-                                    return validateInput(
-                                      value,
-                                      8,
-                                      25,
-                                      "password",
-                                    );
-                                  },
-                                  isPassword: true,
-                                  isOpscured: _isPasswordVisible,
-                                  lableText: ("signUp.confirmPassword").tr(),
-                                  imageIcon: "asset/svgs/password.svg",
+                                  margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                  height: 62.h,
+                                  child: Textforms(
+                                    onChanged: (value) {
+                                      setState(() {});
+                                    },
+                                    onTapIcon: () {
+                                      togglePasswordVisibility();
+                                    },
+                                    controller: _passwordController,
+                                    validator: (value) {
+                                      return validateInput(
+                                        value,
+                                        8,
+                                        25,
+                                        "password",
+                                      );
+                                    },
+                                    isPassword: true,
+                                    isOpscured: _isPasswordVisible,
+                                    lableText: ("signUp.password").tr(),
+                                    imageIcon: "asset/svgs/password.svg",
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 20.h),
-                              OnpasswordChanged(
-                                hasMinLength: hasMinLength,
-                                hasUppercase: hasUppercase,
-                                hasLowercase: hasLowercase,
-                                hasNumber: hasNumber,
-                                hasSpecialChar: hasSpecialChar,
-                              ),
-                              SizedBox(height: 20.h),
-                              SignUpButton(
-                                onPressed: () {
-                                    if (context
-                                        .read<SignUpCubit>()
-                                        .formKey
-                                        .currentState!
-                                        .validate()) {
-                                      context
+                                SizedBox(height: 12.h),
+                                Container(//conferm password
+                                  margin: EdgeInsets.symmetric(horizontal: 24.w),
+                                  height: 62.h,
+                                  child: Textforms(
+                                  
+                                    onTapIcon: () {
+                                      togglePasswordVisibility();
+                                    },
+                                    controller: _confirmPasswordController,
+                                    validator: (value) {
+                                      return validateInput(
+                                        value,
+                                        8,
+                                        25,
+                                        "password",
+                                      );
+                                    },
+                                    isPassword: true,
+                                    isOpscured: _isPasswordVisible,
+                                    lableText: ("signUp.confirmPassword").tr(),
+                                    imageIcon: "asset/svgs/password.svg",
+                                  ),
+                                ),
+                                SizedBox(height: 20.h),
+                                OnpasswordChanged(
+                                  hasMinLength: hasMinLength,
+                                  hasUppercase: hasUppercase,
+                                  hasLowercase: hasLowercase,
+                                  hasNumber: hasNumber,
+                                  hasSpecialChar: hasSpecialChar,
+                                ),
+                                SizedBox(height: 20.h),
+                                SignUpButton(
+                                  onPressed: () {
+                                      if (context
                                           .read<SignUpCubit>()
-                                          .emitSignUpStates(
-                                            email: _emailController.text,
-                                            password: _passwordController.text,
-                                            phone: _phoneController.text,
-                                            context: context
-                                          );
-                                    }
-                                  },
-                              ),
-                              SizedBox(height: 10.h),
-                              HaveAccountText(),
-                              SizedBox(height: 10.h),
-                            ],
+                                          .formKey
+                                          .currentState!
+                                          .validate()) {
+                                        context
+                                            .read<SignUpCubit>()
+                                            .emitSignUpStates(
+                                              email: _emailController.text,
+                                              password: _passwordController.text,
+                                              phone: _phoneController.text,
+                                              context: context
+                                            );
+                                      }
+                                    },
+                                ),
+                                SizedBox(height: 10.h),
+                                HaveAccountText(),
+                                SizedBox(height: 10.h),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
